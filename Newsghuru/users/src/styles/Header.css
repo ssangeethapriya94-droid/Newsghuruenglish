@@ -238,7 +238,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #3b82f6;
+  background: var(--brand-gradient);
   color: white;
   display: flex;
   align-items: center;
@@ -248,13 +248,13 @@
   text-transform: uppercase;
 }
 .dark-theme .user-avatar {
-  background-color: #60a5fa;
+  background: var(--brand-gradient);
 }
 
 .auth-btn { background: #d32f2f; color: #fff; border: none; padding: 6px 14px; border-radius: 4px; font-weight: 600; cursor: pointer; transition: background 0.2s; font-size: 0.9rem; }
 .auth-btn:hover { background: #b71c1c; }
-.logout-btn { background: #64748b; }
-.logout-btn:hover { background: #475569; }
+.logout-btn { background: var(--brand-gradient); }
+.logout-btn:hover { opacity: 0.9; background: var(--brand-gradient); }
 @media (max-width: 600px) { 
   .profile-name { display: none; }
   .user-avatar { width: 28px; height: 28px; font-size: 0.85rem; }
