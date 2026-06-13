@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Footer.css";
 import {
   FaFacebookF,
@@ -21,13 +21,9 @@ import {
   FaFilm
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import ContactModal from "./ContactModal";
 
 const Footer = () => {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-
   return (
-    <>
     <footer className="footer">
       {/* Premium Decorative Background Elements */}
       <div className="footer-deco footer-deco-left">
@@ -172,9 +168,9 @@ const Footer = () => {
           <p className="footer-company">
             நியூஸ் குரு என்பது குருதேவா என்டர்டெயின்மென்ட்ஸ் பிரைவேட் லிமிடெட் மூலம் நடத்தப்படும் ஒரு டிஜிட்டல் ஊடக பிராண்ட் ஆகும்.
           </p>
-          <button onClick={() => setIsContactModalOpen(true)} className="footer-btn" style={{ border: "none", cursor: "pointer", fontFamily: "inherit" }}>
+          <Link to="/contact" className="footer-btn">
             இப்போது குழுசேரவும்
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -185,18 +181,11 @@ const Footer = () => {
           <div className="footer-bottom-links">
             <Link to="/privacy">தனியுரிமைக் கொள்கை</Link>
             <Link to="/terms">விதிமுறைகள் மற்றும் நிபந்தனைகள்</Link>
-            <button 
-              onClick={() => setIsContactModalOpen(true)} 
-              style={{ background: 'none', border: 'none', color: 'inherit', font: 'inherit', cursor: 'pointer', padding: 0 }}
-            >
-              தொடர்பு
-            </button>
+            <Link to="/contact">தொடர்பு</Link>
           </div>
         </div>
       </div>
     </footer>
-    <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
-    </>
   );
 };
 

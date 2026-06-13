@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import API from "../config/api";
 import "../styles/InfoPages.css";
 import { FaEnvelope, FaMapMarkerAlt, FaBuilding, FaPaperPlane } from "react-icons/fa";
 
@@ -6,12 +7,18 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (form.name && form.email && form.message) {
-      setSubmitted(true);
-      setForm({ name: "", email: "", message: "" });
-      setTimeout(() => setSubmitted(false), 5000);
+      try {
+        await API.post("/api/contact", form);
+        setSubmitted(true);
+        setForm({ name: "", email: "", message: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      } catch (error) {
+        console.error("Submit error:", error);
+        alert("Error sending message. Please try again.");
+      }
     }
   };
 
