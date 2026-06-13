@@ -62,14 +62,15 @@ router.post("/create", verifyToken, uploadFields, async (req, res) => {
     } = req.body;
 
     let coverImagePath = "";
+    const baseUrl = `${req.protocol}://${req.get("host")}`;
     if (req.files && req.files["coverImage"] && req.files["coverImage"][0]) {
-      coverImagePath = "http://localhost:5000/uploads/" + req.files["coverImage"][0].filename;
+      coverImagePath = baseUrl + "/uploads/" + req.files["coverImage"][0].filename;
     }
 
     let galleryImagePaths = [];
     if (req.files && req.files["galleryImages"]) {
       galleryImagePaths = req.files["galleryImages"].map(
-        (file) => "http://localhost:5000/uploads/" + file.filename
+        (file) => baseUrl + "/uploads/" + file.filename
       );
     }
 
@@ -141,7 +142,7 @@ router.post("/", upload.single("image"), async (req, res) => {
       date: newsDate,
       createdAt: newsDate,
       keywords: req.body.keywords,
-      image: "http://localhost:5000/uploads/" + req.file.filename,
+      image: `${req.protocol}://${req.get("host")}/uploads/` + req.file.filename,
     });
 
     const savedNews = await news.save();
@@ -335,14 +336,15 @@ router.put("/:id", verifyToken, uploadFields, async (req, res) => {
 
     // Handle files if uploaded
     if (req.files) {
+      const baseUrl = `${req.protocol}://${req.get("host")}`;
       if (req.files["coverImage"] && req.files["coverImage"][0]) {
-        const coverPath = "http://localhost:5000/uploads/" + req.files["coverImage"][0].filename;
+        const coverPath = baseUrl + "/uploads/" + req.files["coverImage"][0].filename;
         news.image = coverPath;
         news.coverImage = coverPath;
       }
       if (req.files["galleryImages"]) {
         const galleryPaths = req.files["galleryImages"].map(
-          (file) => "http://localhost:5000/uploads/" + file.filename
+          (file) => baseUrl + "/uploads/" + file.filename
         );
         news.galleryImages = galleryPaths;
       }
@@ -431,14 +433,15 @@ router.put("/editor/save/:id", verifyToken, authorizeRoles("editor"), uploadFiel
     if (seoKeywords !== undefined) news.seoKeywords = seoKeywords;
 
     if (req.files) {
+      const baseUrl = `${req.protocol}://${req.get("host")}`;
       if (req.files["coverImage"] && req.files["coverImage"][0]) {
-        const coverPath = "http://localhost:5000/uploads/" + req.files["coverImage"][0].filename;
+        const coverPath = baseUrl + "/uploads/" + req.files["coverImage"][0].filename;
         news.image = coverPath;
         news.coverImage = coverPath;
       }
       if (req.files["galleryImages"]) {
         const galleryPaths = req.files["galleryImages"].map(
-          (file) => "http://localhost:5000/uploads/" + file.filename
+          (file) => baseUrl + "/uploads/" + file.filename
         );
         news.galleryImages = galleryPaths;
       }

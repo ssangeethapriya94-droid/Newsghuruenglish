@@ -39,7 +39,7 @@ router.get("/", verifyToken, authorizeRoles("admin"), async (req, res) => {
         
         return {
           filename: file,
-          url: `http://localhost:5000/uploads/${file}`,
+          url: `${req.protocol}://${req.get("host")}/uploads/${file}`,
           size: stats.size,
           createdAt: stats.mtime
         };
@@ -63,7 +63,7 @@ router.post("/upload", verifyToken, authorizeRoles("admin"), upload.single("imag
       return res.status(400).json({ message: "No file uploaded" });
     }
 
-    const fileUrl = `http://localhost:5000/uploads/${req.file.filename}`;
+    const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
     res.status(201).json({
       message: "File uploaded successfully",
       filename: req.file.filename,
