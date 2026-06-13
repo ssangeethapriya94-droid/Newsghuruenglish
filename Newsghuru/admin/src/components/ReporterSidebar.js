@@ -32,10 +32,7 @@ function ReporterSidebar({ isOpen }) {
 
       <div className="sidebar-content">
         
-        <NavLink className="sidebar-link" to="/reporter/dashboard">
-          <span className="link-icon"><FaHome /></span>
-          Dashboard
-        </NavLink>
+
 
         <div className="sidebar-section">NEWS</div>
         <NavLink className="sidebar-link" to="/reporter/create-news">

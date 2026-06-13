@@ -29,10 +29,7 @@ function EditorSidebar({ isOpen }) {
 
       <div className="sidebar-content">
         
-        <NavLink className="sidebar-link" to="/editor/dashboard">
-          <span className="link-icon"><FaHome /></span>
-          Dashboard
-        </NavLink>
+
 
         <div className="sidebar-section">REVIEW QUEUE</div>
         
