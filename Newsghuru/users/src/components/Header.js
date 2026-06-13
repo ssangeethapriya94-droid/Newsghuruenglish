@@ -3,10 +3,27 @@ import "../styles/Header.css";
 import { FaBars, FaSun, FaMoon, FaSearch, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ setSidebar, darkMode, setDarkMode }) => {
+const Header = ({ setSidebar, darkMode, setDarkMode, setAuthPopupVisible, onLoginSuccess }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  
+  const token = localStorage.getItem("readerToken");
+  let readerData = null;
+  try {
+    const dataStr = localStorage.getItem("readerData");
+    if (dataStr) {
+      readerData = JSON.parse(dataStr);
+    }
+  } catch (e) {
+    console.error("Error parsing readerData", e);
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("readerToken");
+    localStorage.removeItem("readerData");
+    onLoginSuccess(); // trigger re-render in App
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -97,6 +114,17 @@ const Header = ({ setSidebar, darkMode, setDarkMode }) => {
         <div className="search-icon" onClick={() => setShowSearch(true)}>
           <FaSearch />
         </div>
+
+        {token ? (
+          <div className="auth-buttons">
+            <span className="profile-name">👤 {readerData?.name || "User"}</span>
+            <button className="auth-btn logout-btn" onClick={handleLogout}>Logout</button>
+          </div>
+        ) : (
+          <div className="auth-buttons">
+            <button className="auth-btn login-btn" onClick={() => setAuthPopupVisible(true)}>Login</button>
+          </div>
+        )}
       </div>
     </header>
   );

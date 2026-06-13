@@ -254,7 +254,7 @@ router.put("/users/:id/role", verifyToken, authorizeRoles("admin"), async (req, 
       }
     }
     if (role) {
-      if (!["admin", "editor", "reporter"].includes(role)) {
+      if (!["admin", "editor", "reporter", "reader"].includes(role)) {
         return res.status(400).json({ message: "Invalid role specified" });
       }
       user.role = role;
