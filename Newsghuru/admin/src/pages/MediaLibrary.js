@@ -73,6 +73,25 @@ function MediaLibrary() {
     }
   };
 
+  const handleDeleteAll = async () => {
+    if (mediaFiles.length === 0) {
+      alert("No files to delete.");
+      return;
+    }
+    if (!window.confirm("Are you SURE you want to delete ALL media files? This action cannot be undone and will break images in existing articles!")) {
+      return;
+    }
+
+    try {
+      await API.delete("/api/media");
+      alert("All files deleted successfully");
+      fetchMedia();
+    } catch (error) {
+      console.error("Delete all media error:", error);
+      alert("Failed to delete all files");
+    }
+  };
+
   const copyToClipboard = (url) => {
     navigator.clipboard.writeText(url);
     alert("Image URL copied to clipboard! 📋");
@@ -88,11 +107,21 @@ function MediaLibrary() {
 
   return (
     <div className="reporter-my-articles">
-      <div className="header-actions">
-        <h2>🖼️ Media Library</h2>
-        <div style={{ color: "var(--text-muted)", fontSize: "14px" }}>
-          Upload news images and copy their direct links.
+      <div className="header-actions" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <h2>🖼️ Media Library</h2>
+          <div style={{ color: "var(--text-muted)", fontSize: "14px" }}>
+            Upload news images and copy their direct links.
+          </div>
         </div>
+        {mediaFiles.length > 0 && (
+          <button 
+            onClick={handleDeleteAll}
+            style={{ background: "#ef4444", color: "white", padding: "10px 20px", border: "none", borderRadius: "6px", fontWeight: "bold", cursor: "pointer" }}
+          >
+            🗑️ Delete All Media
+          </button>
+        )}
       </div>
 
       {/* UPLOAD PANEL */}

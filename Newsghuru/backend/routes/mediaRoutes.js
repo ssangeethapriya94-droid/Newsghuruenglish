@@ -98,4 +98,23 @@ router.delete("/:filename", verifyToken, authorizeRoles("admin"), async (req, re
   }
 });
 
+// DELETE ALL /api/media - Delete all files from disk (Admin only)
+router.delete("/", verifyToken, authorizeRoles("admin"), async (req, res) => {
+  try {
+    const dirPath = path.join(__dirname, "../uploads");
+    if (fs.existsSync(dirPath)) {
+      const files = fs.readdirSync(dirPath);
+      for (const file of files) {
+        fs.unlinkSync(path.join(dirPath, file));
+      }
+      res.json({ message: "All files deleted successfully" });
+    } else {
+      res.status(404).json({ message: "Uploads directory not found" });
+    }
+  } catch (error) {
+    console.error("Delete all media error:", error);
+    res.status(500).json({ message: "Server error deleting all files" });
+  }
+});
+
 module.exports = router;
