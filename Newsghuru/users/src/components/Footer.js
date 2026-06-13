@@ -185,7 +185,12 @@ const Footer = () => {
           <div className="footer-bottom-links">
             <Link to="/privacy">தனியுரிமைக் கொள்கை</Link>
             <Link to="/terms">விதிமுறைகள் மற்றும் நிபந்தனைகள்</Link>
-            <Link to="/contact">தொடர்பு</Link>
+            <button 
+              onClick={() => setIsContactModalOpen(true)} 
+              style={{ background: 'none', border: 'none', color: 'inherit', font: 'inherit', cursor: 'pointer', padding: 0 }}
+            >
+              தொடர்பு
+            </button>
           </div>
         </div>
       </div>
