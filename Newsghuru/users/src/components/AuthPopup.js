@@ -109,10 +109,29 @@ const AuthPopup = ({ onClose, onLoginSuccess }) => {
     }
   };
 
+  const [highlightWarning, setHighlightWarning] = useState(false);
+
+  const handleCloseClick = () => {
+    setHighlightWarning(true);
+    setTimeout(() => setHighlightWarning(false), 300);
+  };
+
   return (
     <div className="auth-popup-overlay">
-      <div className="auth-popup-container">
-        <button className="auth-close-btn" onClick={onClose}><FaTimes /></button>
+      <div className="auth-popup-container" onClick={(e) => e.stopPropagation()}>
+        <button type="button" className="auth-close-btn" onClick={handleCloseClick}><FaTimes /></button>
+        <div style={{ 
+          backgroundColor: highlightWarning ? "#b71c1c" : "#d32f2f", 
+          color: "white", 
+          padding: "10px", 
+          textAlign: "center", 
+          fontWeight: "bold", 
+          fontSize: "0.95rem",
+          transition: "all 0.2s ease-in-out",
+          transform: highlightWarning ? "scale(1.02)" : "scale(1)",
+        }}>
+          Login Required to Continue Reading
+        </div>
         
         <div className="auth-tabs">
           <button 
