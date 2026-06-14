@@ -15,9 +15,9 @@ const TamilNadu = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "தமிழகம்",
-    description: "தமிழகத்தின் முக்கிய செய்திகள், மாவட்ட செய்திகள் மற்றும் சென்னை செய்திகள்",
-    keywords: "தமிழகம் செய்திகள், மாவட்ட செய்திகள், சென்னை செய்திகள், தமிழ்நாடு",
+    title: "Tamil Nadu",
+    description: "Tamil Nadu Breaking News, District News and Chennai News",
+    keywords: "Tamil Nadu News, District News, Chennai News, Tamil Nadu",
   });
 
   const [news, setNews] = useState([]);
@@ -25,7 +25,7 @@ const TamilNadu = () => {
   const [error, setError] = useState("");
 
   const categoryTamilMap = {
-    tamil: "தமிழகம்",
+    tamil: "Tamil Nadu",
   };
 
   const getCategoryLabel = (category) =>
@@ -45,7 +45,7 @@ const TamilNadu = () => {
 
     } catch (err) {
       console.error("Tamil Nadu API Error:", err);
-      setError("தமிழகச் செய்திகளை ஏற்றுவதில் தோல்வி");
+      setError("Failed to load Tamil Nadu news");
     } finally {
       setLoading(false);
     }
@@ -85,7 +85,7 @@ const TamilNadu = () => {
   if (loading) {
     return (
       <div style={{ textAlign: "center", marginTop: "100px", fontSize: "20px" }}>
-        தமிழகச் செய்திகளை ஏற்றுகிறது...
+        Loading Tamil Nadu news...
       </div>
     );
   }
@@ -106,12 +106,12 @@ const TamilNadu = () => {
       <div className="tamil-header">
 
         <div>
-          <h1>தமிழகம்</h1>
-          <p>தமிழகத்தின் முக்கிய அரசியல் மற்றும் உடனடி செய்திகளை அறியுங்கள்</p>
+          <h1>Tamil Nadu</h1>
+          <p>Know the important politics and breaking news of Tamil Nadu</p>
         </div>
 
         <button className="state-live-btn">
-          <FaMapMarkedAlt /> தமிழகம் நேரலை
+          <FaMapMarkedAlt /> Tamil Nadu Live
         </button>
 
       </div>
@@ -119,7 +119,7 @@ const TamilNadu = () => {
       {/* EMPTY STATE */}
       {filteredNews.length === 0 ? (
         <div style={{ padding: "20px" }}>
-          தேர்ந்தெடுக்கப்பட்ட தேதியில் தமிழகச் செய்திகள் எதுவும் இல்லை...
+          No Tamil Nadu news available for the selected date...
         </div>
       ) : (
         <>
@@ -135,7 +135,7 @@ const TamilNadu = () => {
 
             <img
               src={filteredNews[0].image}
-              alt={filteredNews[0].titleTa || filteredNews[0].title}
+              alt={filteredNews[0].title}
               className="featured-tamil-image"
             />
 
@@ -145,7 +145,7 @@ const TamilNadu = () => {
                 <FaMapMarkedAlt /> {getCategoryLabel(filteredNews[0].category)}
               </button>
 
-              <h2>{filteredNews[0].titleTa || filteredNews[0].title}</h2>
+              <h2>{filteredNews[0].title}</h2>
 
               <div className="featured-meta">
                 <span>
@@ -177,7 +177,7 @@ const TamilNadu = () => {
 
                 <img
                   src={newsItem.image}
-                  alt={newsItem.titleTa || newsItem.title}
+                  alt={newsItem.title}
                   className="tamil-news-image"
                 />
 
@@ -187,9 +187,9 @@ const TamilNadu = () => {
                     <FaMapMarkedAlt /> {getCategoryLabel(newsItem.category)}
                   </button>
 
-                  <h3>{newsItem.titleTa || newsItem.title}</h3>
+                  <h3>{newsItem.title}</h3>
 
-                  <p>{(newsItem.shortDescriptionTa || newsItem.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 120)}...</p>
+                  <p>{(newsItem.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 120)}...</p>
 
                   <div className="tamil-news-footer">
 
@@ -203,7 +203,7 @@ const TamilNadu = () => {
                     </div>
 
                     <div className="read-more">
-                      மேலும் வாசிக்க <FaArrowRight />
+                      Read More <FaArrowRight />
                     </div>
 
                   </div>

@@ -245,18 +245,18 @@ function ReporterCreateNews() {
           </div>
 
           <div className="form-group">
-            <label>Category / வகை <span className="required">*</span></label>
+            <label>Category <span className="required">*</span></label>
             <select name="category" className={errors.category ? "error-input" : ""} value={formData.category} onChange={handleChange}>
-              <option value="">Select Category / வகையைத் தேர்ந்தெடுக்கவும்</option>
-              <option value="breaking">Breaking News / தற்போதைய செய்திகள்</option>
-              <option value="politics">Politics / அரசியல்</option>
-              <option value="sports">Sports / விளையாட்டு</option>
-              <option value="cinema">Cinema / சினிமா</option>
-              <option value="business">Business / வணிகம்</option>
-              <option value="education">Education / கல்வி</option>
-              <option value="tamilnadu">Tamil Nadu / தமிழகம்</option>
-              <option value="india">India / இந்தியா</option>
-              <option value="world">World / உலகம்</option>
+              <option value="">Select Category</option>
+              <option value="breaking">Breaking News / Latest News</option>
+              <option value="politics">Politics / Politics</option>
+              <option value="sports">Sports / Sports</option>
+              <option value="cinema">Cinema / Cinema</option>
+              <option value="business">Business / Business</option>
+              <option value="education">Education / Education</option>
+              <option value="tamilnadu">Tamil Nadu / Tamil Nadu</option>
+              <option value="india">India / India</option>
+              <option value="world">World / World</option>
             </select>
             {errors.category && <span className="error-text">{errors.category}</span>}
           </div>

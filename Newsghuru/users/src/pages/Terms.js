@@ -6,48 +6,48 @@ const Terms = () => {
   return (
     <div className="info-page">
       <div className="info-header">
-        <h1>விதிமுறைகள் மற்றும் நிபந்தனைகள்</h1>
-        <p>நியூஸ் குரு சேவைகளைப் பயன்படுத்துவதற்கான விதிகள்</p>
+        <h1>Terms and Conditions</h1>
+        <p>Rules for using News Guru services</p>
       </div>
 
       <div className="info-card">
         <div className="info-section">
           <h2>
-            <FaFileContract /> 1. விதிமுறைகளை ஒப்புக்கொள்ளுதல்
+            <FaFileContract /> 1. Acceptance of Terms
           </h2>
           <p>
-            நியூஸ் குரு (News Ghuru) வலைத்தளத்தை அணுகுவதன் அல்லது பயன்படுத்துவதன் மூலம், இந்த விதிமுறைகள் மற்றும் நிபந்தனைகளுக்குக் கட்டுப்பட ஒப்புக்கொள்கிறீர்கள். இந்த விதிமுறைகளை நீங்கள் ஏற்கவில்லை எனில், எங்கள் வலைத்தளத்தைப் பயன்படுத்த வேண்டாம் என கேட்டுக்கொள்ளப்படுகிறீர்கள்.
+            By accessing or using the News Guru (News Ghuru) website, you agree to be bound by these terms and conditions. If you do not agree to these terms, you are requested not to use our website.
           </p>
         </div>
 
         <div className="info-section">
           <h2>
-            <FaGavel /> 2. அறிவுசார் சொத்துரிமை
+            <FaGavel /> 2. Intellectual Property
           </h2>
           <p>
-            எங்கள் வலைத்தளத்தில் உள்ள கட்டுரைகள், செய்திகள், படங்கள், லோகோக்கள் மற்றும் பிற உள்ளடக்கங்கள் அனைத்தும் நியூஸ் குருவின் சொத்தாகும். எங்கள் முன் அனுமதியின்றி இவற்றை நகலெடுக்கவோ, வெளியிடவோ அல்லது விநியோகிக்கவோ கூடாது.
+            All articles, news, images, logos and other content on our website are the property of News Guru. They may not be copied, published or distributed without our prior permission.
           </p>
         </div>
 
         <div className="info-section">
           <h2>
-            <FaCheckCircle /> 3. பயனர் பொறுப்புகள்
+            <FaCheckCircle /> 3. User Responsibilities
           </h2>
           <p>
-            எங்கள் சேவைகளைப் பயன்படுத்தும்போது, சட்டவிரோதமான அல்லது எங்களது நற்பெயருக்குக் கேடு விளைவிக்கும் எவ்விதமான செயல்பாடுகளிலும் நீங்கள் ஈடுபடக்கூடாது.
+            While using our services, you must not engage in any activity that is illegal or harmful to our reputation.
           </p>
           <ul>
-            <li>தவறான தகவல்களைப் பரப்பக்கூடாது.</li>
-            <li>கருத்துப் பெட்டியில் பிறரை அவதூறாகப் பேசவோ அல்லது அச்சுறுத்தவோ கூடாது.</li>
+            <li>Do not spread false information.</li>
+            <li>Do not defame or threaten others in the comment box.</li>
           </ul>
         </div>
 
         <div className="info-section">
           <h2>
-            <FaExclamationTriangle /> 4. பொறுப்புத் துறப்பு
+            <FaExclamationTriangle /> 4. Disclaimer
           </h2>
           <p>
-            எங்கள் தளம் நம்பகமான செய்திகளை வழங்க முயல்கிறது. இருப்பினும், வலைத்தளத்தில் உள்ள தகவல்களின் முழுமையான துல்லியம் அல்லது நம்பகத்தன்மைக்கு நாங்கள் எவ்வித உத்தரவாதமும் அளிக்கவில்லை.
+            Our site strives to provide reliable news. However, we do not guarantee the complete accuracy or reliability of the information on the website.
           </p>
         </div>
       </div>

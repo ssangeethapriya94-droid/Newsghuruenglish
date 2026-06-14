@@ -23,54 +23,54 @@ const Sidebar = ({ sidebar, setSidebar }) => {
 
   const sidebarMenu = [
     {
-      name: "முகப்பு",
+      name: "Home",
       icon: <FaHome />,
       path: "/",
     },
     {
-      name: "தற்போதைய செய்தி",
+      name: "Latest News",
       icon: <FaNewspaper />,
       path: "/latest-news",
     },
     {
-      name: "தமிழகம்",
+      name: "Tamil Nadu",
       icon: <FaMapMarkedAlt />,
       path: "/tamilnadu",
     },
     {
-      name: "இந்தியா",
+      name: "India",
       icon: <FaFlag />,
       path: "/india",
     },
     {
-      name: "உலகம்",
+      name: "World",
       icon: <FaGlobe />,
       path: "/world",
     },
     {
-      name: "விளையாட்டு",
+      name: "Sports",
       icon: <FaFutbol />,
       path: "/sports",
     },
     {
-      name: "வணிகம்",
+      name: "Business",
       icon: <FaBriefcase />,
       path: "/business",
     },
     {
-      name: "கல்வி",
+      name: "Education",
       icon: <FaGraduationCap />,
       path: "/education",
     },
 
     // ✅ NEW CATEGORY ADDED
     {
-      name: "அரசியல்",
+      name: "Politics",
       icon: <FaLandmark />,
       path: "/politics",
     },
     {
-      name: "சினிமா",
+      name: "Cinema",
       icon: <FaFilm />,
       path: "/cinema",
     }
@@ -86,11 +86,11 @@ const Sidebar = ({ sidebar, setSidebar }) => {
         <div className="sidebar-header">
           <div className="sidebar-logo-section">
             <img
-              src="/NEWS GHURU LOGO PNG.png"
+              src="/NEWS GHURU LOGO English.png"
               alt="Logo"
               className="sidebar-logo"
             />
-            <h2 className="logo-title" style={{ fontSize: "22px" }}>நியூஸ் குரு</h2>
+            <h2 className="logo-title" style={{ fontSize: "22px" }}>News Guru</h2>
           </div>
 
           <FaTimes
@@ -118,7 +118,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
         </div>
 
         <div className="sidebar-footer">
-          <p>தமிழ் செய்திகளை உடனுக்குடன் தெரிந்துகொள்ளுங்கள்.</p>
+          <p>Get the latest news instantly.</p>
         </div>
       </div>
     </>

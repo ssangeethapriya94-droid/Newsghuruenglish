@@ -4,9 +4,9 @@ const useSEO = ({ title, description, keywords, ogTitle, ogDescription }) => {
   useEffect(() => {
     // Title
     if (title) {
-      document.title = `${title} | நியூஸ் குரு`;
+      document.title = `${title} | News Guru`;
     } else {
-      document.title = "நியூஸ் குரு | தமிழ் செய்திகள்";
+      document.title = "News Guru | English News";
     }
 
     // Description
@@ -14,7 +14,7 @@ const useSEO = ({ title, description, keywords, ogTitle, ogDescription }) => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        description || "நியூஸ் குரு - தமிழ் செய்திகள், அரசியல், விளையாட்டு, சினிமா மற்றும் தொழில்நுட்ப செய்திகள்"
+        description || "News Guru - English News, Politics, Sports, Cinema and Technology News"
       );
     }
 
@@ -23,14 +23,14 @@ const useSEO = ({ title, description, keywords, ogTitle, ogDescription }) => {
     if (metaKeywords) {
       metaKeywords.setAttribute(
         "content",
-        keywords || "தமிழ் செய்திகள், நியூஸ் குரு, பிரேக்கிங் நியூஸ், அரசியல், விளையாட்டு, சினிமா, தொழில்நுட்பம்"
+        keywords || "English News, News Guru, Breaking News, Politics, Sports, Cinema, Technology"
       );
     }
 
     // OG Title
     const ogTitleTag = document.querySelector('meta[property="og:title"]');
     if (ogTitleTag) {
-      ogTitleTag.setAttribute("content", ogTitle || title || "நியூஸ் குரு");
+      ogTitleTag.setAttribute("content", ogTitle || title || "News Guru");
     }
 
     // OG Description
@@ -38,7 +38,7 @@ const useSEO = ({ title, description, keywords, ogTitle, ogDescription }) => {
     if (ogDescTag) {
       ogDescTag.setAttribute(
         "content",
-        ogDescription || description || "சமீபத்திய தமிழ் செய்திகள், முக்கிய செய்திகள், அரசியல், சினிமா, விளையாட்டு மற்றும் பல."
+        ogDescription || description || "Latest English News, Breaking News, Politics, Cinema, Sports and more."
       );
     }
   }, [title, description, keywords, ogTitle, ogDescription]);

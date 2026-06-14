@@ -15,9 +15,9 @@ const Business = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "வணிகம்",
-    description: "வணிக செய்திகள், பங்குச்சந்தை நிலவரம், தங்கம் மற்றும் வெள்ளி விலை விவரங்கள்",
-    keywords: "வணிக செய்திகள், பங்குச்சந்தை, தங்கம் விலை, வெள்ளி விலை, வர்த்தகம்",
+    title: "Business",
+    description: "Business news, stock market updates, gold and silver prices",
+    keywords: "Business news, stock market, gold price, silver price, trading",
   });
 
   const [news, setNews] = useState([]);
@@ -25,7 +25,7 @@ const Business = () => {
   const [error, setError] = useState("");
 
   const categoryTamilMap = {
-    business: "வணிகம்",
+    business: "Business",
   };
 
   const getCategoryLabel = (category) =>
@@ -45,7 +45,7 @@ const Business = () => {
 
     } catch (err) {
       console.error("Business News Error:", err);
-      setError("வணிகச் செய்திகளை ஏற்றுவதில் தோல்வி");
+      setError("Failed to load business news");
     } finally {
       setLoading(false);
     }
@@ -85,7 +85,7 @@ const Business = () => {
   if (loading) {
     return (
       <div style={{ textAlign: "center", marginTop: "100px" }}>
-        வணிகச் செய்திகளை ஏற்றுகிறது...
+        Loading business news...
       </div>
     );
   }
@@ -106,12 +106,12 @@ const Business = () => {
       <div className="business-header">
 
         <div>
-          <h1>வணிகம்</h1>
-          <p>இந்தியா மற்றும் உலக வணிகத்தின் முக்கிய செய்திகளை அறியுங்கள்</p>
+          <h1>Business</h1>
+          <p>Get the latest business news from India and the world</p>
         </div>
 
         <button className="business-live-btn">
-          <FaBriefcase /> சந்தை நிலவரம் நேரலை
+          <FaBriefcase /> Live Market Status
         </button>
 
       </div>
@@ -119,7 +119,7 @@ const Business = () => {
       {/* EMPTY STATE */}
       {filteredNews.length === 0 ? (
         <div style={{ padding: "20px" }}>
-          தேர்ந்தெடுக்கப்பட்ட தேதியில் வணிகச் செய்திகள் எதுவும் இல்லை...
+          No business news available for the selected date...
         </div>
       ) : (
         <>
@@ -135,7 +135,7 @@ const Business = () => {
 
             <img
               src={filteredNews[0].image}
-              alt={filteredNews[0].titleTa || filteredNews[0].title}
+              alt={filteredNews[0].title}
               className="featured-business-image"
             />
 
@@ -145,7 +145,7 @@ const Business = () => {
                 <FaBriefcase /> {getCategoryLabel(filteredNews[0].category)}
               </button>
 
-              <h2>{filteredNews[0].titleTa || filteredNews[0].title}</h2>
+              <h2>{filteredNews[0].title}</h2>
 
               <div className="featured-business-meta">
                 <span>
@@ -176,7 +176,7 @@ const Business = () => {
 
                 <img
                   src={item.image}
-                  alt={item.titleTa || item.title}
+                  alt={item.title}
                   className="business-news-image"
                 />
 
@@ -186,10 +186,10 @@ const Business = () => {
                     <FaBriefcase /> {getCategoryLabel(item.category)}
                   </button>
 
-                  <h3>{item.titleTa || item.title}</h3>
+                  <h3>{item.title}</h3>
 
                   <p>
-                    {(item.shortDescriptionTa || item.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").substring(0, 120)}...
+                    {(item.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").substring(0, 120)}...
                   </p>
 
                   <div className="business-news-footer">
@@ -204,7 +204,7 @@ const Business = () => {
                     </div>
 
                     <div className="business-read-more">
-                      மேலும் வாசிக்க <FaArrowRight />
+                      Read More <FaArrowRight />
                     </div>
 
                   </div>

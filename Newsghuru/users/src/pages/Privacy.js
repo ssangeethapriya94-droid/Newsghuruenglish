@@ -6,53 +6,53 @@ const Privacy = () => {
   return (
     <div className="info-page">
       <div className="info-header">
-        <h1>தனியுரிமைக் கொள்கை</h1>
-        <p>நியூஸ் குரு வலைத்தளத்தின் தனியுரிமைக் கொள்கை விவரங்கள்</p>
+        <h1>Privacy Policy</h1>
+        <p>News Guru Privacy Policy Details</p>
       </div>
 
       <div className="info-card">
         <div className="info-section">
           <h2>
-            <FaShieldAlt /> 1. அறிமுகம்
+            <FaShieldAlt /> 1. Introduction
           </h2>
           <p>
-            நியூஸ் குரு (News Ghuru) உங்கள் தனியுரிமையை மதிக்கிறது மற்றும் உங்கள் தனிப்பட்ட தகவல்களைப் பாதுகாப்பதில் உறுதியாக உள்ளது. இந்தத் தனியுரிமைக் கொள்கை, எங்களது சேவைகளைப் பயன்படுத்தும் போது உங்களிடமிருந்து நாங்கள் சேகரிக்கும் தகவல்களை எவ்வாறு கையாளுகிறோம் என்பதை விளக்குகிறது.
+            News Guru respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we handle the information we collect from you when you use our services.
           </p>
         </div>
 
         <div className="info-section">
           <h2>
-            <FaEye /> 2. நாங்கள் சேகரிக்கும் தகவல்கள்
+            <FaEye /> 2. Information We Collect
           </h2>
           <p>
-            எங்கள் வலைத்தளத்தை நீங்கள் பயன்படுத்தும்போது, பின்வரும் தகவல்களை நாங்கள் சேகரிக்கலாம்:
+            When you use our website, we may collect the following information:
           </p>
           <ul>
-            <li>சந்தா செலுத்தும் போது அல்லது தொடர்பு கொள்ளும் போது நீங்கள் வழங்கும் பெயர் மற்றும் மின்னஞ்சல் முகவரி.</li>
-            <li>குக்கீகள் மற்றும் பகுப்பாய்வு தரவு (ஐபி முகவரி, உலாவி வகை மற்றும் பக்க பார்வைகள் போன்றவை) மூலம் சேகரிக்கப்படும் பயன்பாட்டுத் தரவு.</li>
+            <li>Name and email address provided by you when subscribing or contacting us.</li>
+            <li>Usage data collected through cookies and analytics (such as IP address, browser type, and page views).</li>
           </ul>
         </div>
 
         <div className="info-section">
           <h2>
-            <FaLock /> 3. தகவல்களின் பயன்பாடு
+            <FaLock /> 3. Use of Information
           </h2>
           <p>
-            நாங்கள் சேகரிக்கும் தகவல்கள் பின்வரும் நோக்கங்களுக்காகப் பயன்படுத்தப்படுகின்றன:
+            The information we collect is used for the following purposes:
           </p>
           <ul>
-            <li>உங்களுக்குச் செய்திகள் மற்றும் அறிவிப்புகளை உடனுக்குடன் வழங்க.</li>
-            <li>எங்களது சேவைகளை மேம்படுத்த மற்றும் பயனர் அனுபவத்தை நல்வழிப்படுத்த.</li>
-            <li>உங்கள் கேள்விகளுக்கு பதிலளிக்க மற்றும் ஆதரவு வழங்க.</li>
+            <li>To provide you with news and updates instantly.</li>
+            <li>To improve our services and enhance the user experience.</li>
+            <li>To answer your questions and provide support.</li>
           </ul>
         </div>
 
         <div className="info-section">
           <h2>
-            <FaUserShield /> 4. தரவுப் பாதுகாப்பு
+            <FaUserShield /> 4. Data Security
           </h2>
           <p>
-            உங்கள் தனிப்பட்ட தகவல்கள் எந்தவொரு மூன்றாம் தரப்பினருக்கும் விற்கப்படவோ அல்லது பகிரப்படவோ மாட்டாது. உங்கள் தகவல்களின் பாதுகாப்பை உறுதிசெய்ய நாங்கள் தகுந்த பாதுகாப்பு நடைமுறைகளைப் பின்பற்றுகிறோம்.
+            Your personal information will not be sold or shared with any third party. We follow appropriate security practices to ensure the safety of your information.
           </p>
         </div>
       </div>

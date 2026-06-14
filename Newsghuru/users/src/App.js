@@ -107,8 +107,8 @@ function NotFoundPage() {
     <div className="not-found-page">
       <div className="not-found-content">
         <h1>404</h1>
-        <h2>பக்கம் கிடைக்கவில்லை</h2>
-        <p>நீங்கள் தேடும் பக்கம் கிடைக்கவில்லை.</p>
+        <h2>Page Not Found</h2>
+        <p>The page you are looking for is not found.</p>
       </div>
     </div>
   );

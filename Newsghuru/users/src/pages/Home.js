@@ -4,7 +4,6 @@ import "../styles/Home.css";
 import RelativeTime from "../components/RelativeTime";
 
 import {
-  FaArrowRight,
   FaBolt,
   FaChartLine,
   FaGlobe,
@@ -32,9 +31,9 @@ const Home = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "முகப்பு (Home)",
-    description: "தமிழகம், இந்தியா மற்றும் உலக அளவிலான உடனடி மற்றும் நம்பகமான தமிழ் செய்திகள் - நியூஸ் குரு",
-    keywords: "முகப்பு செய்தி, தமிழ் செய்திகள், தமிழக செய்திகள், பிரேக்கிங் நியூஸ், நியூஸ் குரு",
+    title: "Home (Home)",
+    description: "Instant and reliable English news from Tamil Nadu, India, and the world - News Guru",
+    keywords: "Home news, English news, Tamil Nadu news, breaking news, News Guru",
   });
 
   const [loading, setLoading] = useState(true);
@@ -51,17 +50,17 @@ const Home = () => {
   const [cinemaNews, setCinemaNews] = useState([]);
 
   const categoryTamilMap = {
-    breaking: "முக்கிய செய்திகள்",
-    tamil: "தமிழகம்",
-    india: "இந்தியா",
-    world: "உலகம்",
-    business: "வணிகம்",
-    sports: "விளையாட்டு",
-    education: "கல்வி",
-    politics: "அரசியல்",
-    cinema: "சினிமா",
-    technology: "தொழில்நுட்பம்",
-    tech: "தொழில்நுட்பம்",
+    breaking: "Breaking News",
+    tamil: "Tamil Nadu",
+    india: "India",
+    world: "World",
+    business: "Business",
+    sports: "Sports",
+    education: "Education",
+    politics: "Politics",
+    cinema: "Cinema",
+    technology: "Technology",
+    tech: "Technology",
   };
 
   const getCategoryLabel = (category) =>
@@ -122,7 +121,7 @@ const Home = () => {
       setCinemaNews(filterCat("cinema"));
     } catch (err) {
       console.error("Home API Error:", err);
-      if (showLoading) setError("செய்திகளை ஏற்றுவதில் தோல்வி");
+      if (showLoading) setError("Failed to load news");
     } finally {
       if (showLoading) setLoading(false);
     }
@@ -166,17 +165,6 @@ const Home = () => {
   const filteredEducation = filterByDate(educationNews, selectedDate);
   const filteredCinema = filterByDate(cinemaNews, selectedDate);
 
-  const trendingNews = [
-    filteredBreaking[0],
-    filteredTamil[0],
-    filteredIndia[0],
-    filteredPolitics[0],
-    filteredSports[0],
-    filteredBusiness[0],
-    filteredEducation[0],
-    filteredWorld[0],
-  ].filter(Boolean);
-
   const categoryNews = [
     filteredBreaking[1],
     filteredTamil[1],
@@ -197,7 +185,7 @@ const Home = () => {
     return (
       <div className="home-user-loader">
         <div className="loader-spinner"></div>
-        <h2>செய்திகளை ஏற்றுகிறது...</h2>
+        <h2>Loading news...</h2>
       </div>
     );
   }
@@ -227,7 +215,7 @@ const Home = () => {
             <div className="img-wrapper">
               <img
                 src={filteredBreaking[0].image || filteredBreaking[0].coverImage}
-                alt={filteredBreaking[0].titleTa || filteredBreaking[0].title}
+                alt={filteredBreaking[0].title}
                 className="hero-main-img"
               />
               <div className="hero-gradient-overlay"></div>
@@ -237,9 +225,9 @@ const Home = () => {
               <span className="live-badge">
                 <FaBolt className="live-icon" /> {getCategoryLabel("breaking")}
               </span>
-              <h1 className="hero-title">{filteredBreaking[0].titleTa || filteredBreaking[0].title}</h1>
-              {(filteredBreaking[0].subtitleTa || filteredBreaking[0].subtitle) && (
-                <p className="hero-subtitle">{stripHtml(filteredBreaking[0].subtitleTa || filteredBreaking[0].subtitle)}</p>
+              <h1 className="hero-title">{filteredBreaking[0].title}</h1>
+              {(filteredBreaking[0].subtitle) && (
+                <p className="hero-subtitle">{stripHtml(filteredBreaking[0].subtitle)}</p>
               )}
               <div className="hero-meta">
                 <span className="hero-time">
@@ -261,13 +249,13 @@ const Home = () => {
               onClick={() => navigate(`/news/${n._id}`, { state: n })}
             >
               <div className="side-img-wrapper">
-                <img src={n.image || n.coverImage} alt={n.titleTa || n.title} />
+                <img src={n.image || n.coverImage} alt={n.title} />
               </div>
               <div className="side-hero-content">
                 <span className="mini-badge">
                   <FaFire /> {getCategoryLabel(n.category)}
                 </span>
-                <h3 className="side-title line-clamp-2">{n.titleTa || n.title}</h3>
+                <h3 className="side-title line-clamp-2">{n.title}</h3>
                 <span className="side-time">
                   <RelativeTime createdAt={n.createdAt} fallback={n.time} />
                 </span>
@@ -282,7 +270,7 @@ const Home = () => {
       {categoryNews.length > 0 && (
         <div className="home-user-section bg-light-gray">
           <div className="home-user-section-header">
-            <h2><FaNewspaper className="header-icon text-blue" /> முக்கிய செய்திகள்</h2>
+            <h2><FaNewspaper className="header-icon text-blue" /> Breaking News</h2>
             <div className="header-line"></div>
           </div>
 
@@ -294,13 +282,13 @@ const Home = () => {
                 onClick={() => navigate(`/news/${n._id}`, { state: n })}
               >
                 <div className="card-img-container small-vertical-img">
-                  <img src={n.image || n.coverImage} alt={n.titleTa || n.title} />
+                  <img src={n.image || n.coverImage} alt={n.title} />
                 </div>
                 <div className="card-body">
                   <button className="trending-category-btn">
                     {n.icon} {getCategoryLabel(n.category)}
                   </button>
-                  <h3 className="card-title line-clamp-2">{n.titleTa || n.title}</h3>
+                  <h3 className="card-title line-clamp-2">{n.title}</h3>
                   <span className="card-time">
                     <RelativeTime createdAt={n.createdAt} fallback={n.time} />
                   </span>
@@ -315,7 +303,7 @@ const Home = () => {
       {filteredCinema.length > 0 && (
         <div className="home-user-section">
           <div className="home-user-section-header">
-            <h2><FaFilm className="header-icon text-purple" /> சினிமா செய்திகள்</h2>
+            <h2><FaFilm className="header-icon text-purple" /> Cinema News</h2>
             <div className="header-line"></div>
           </div>
 
@@ -327,11 +315,11 @@ const Home = () => {
                 onClick={() => navigate(`/news/${n._id}`, { state: n })}
               >
                 <div className="card-img-container cinema-img">
-                  <img src={n.image || n.coverImage} alt={n.titleTa || n.title} />
+                  <img src={n.image || n.coverImage} alt={n.title} />
                   <FaPlayCircle className="cinema-play-icon" />
                 </div>
                 <div className="card-body cinema-body">
-                  <h3 className="card-title line-clamp-2">{n.titleTa || n.title}</h3>
+                  <h3 className="card-title line-clamp-2">{n.title}</h3>
                   <span className="card-time">
                     <RelativeTime createdAt={n.createdAt} fallback={n.time} />
                   </span>
@@ -345,7 +333,7 @@ const Home = () => {
       {/* LATEST UPDATES TICKER / LIST */}
       <div className="home-user-section">
         <div className="home-user-section-header">
-          <h2><FaBolt className="header-icon text-orange" /> சமீபத்திய செய்திகள்</h2>
+          <h2><FaBolt className="header-icon text-orange" /> Recent News</h2>
           <div className="header-line"></div>
         </div>
 
@@ -358,7 +346,7 @@ const Home = () => {
             >
               <div className="list-dot"></div>
               <div className="list-content">
-                <h4 className="list-title">{n.titleTa || n.title}</h4>
+                <h4 className="list-title">{n.title}</h4>
                 <span className="list-time">
                   <RelativeTime createdAt={n.createdAt} fallback={n.time} />
                 </span>

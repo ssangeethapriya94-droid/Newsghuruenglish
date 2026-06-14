@@ -15,9 +15,9 @@ const Sports = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "விளையாட்டு",
-    description: "உலக விளையாட்டு மற்றும் இந்திய அணிகளின் முக்கிய செய்திகளை அறியுங்கள்",
-    keywords: "விளையாட்டு செய்திகள், கிரிக்கெட், கால்பந்து, ஒலிம்பிக்ஸ், விளையாட்டு",
+    title: "Sports",
+    description: "Get important news about world sports and Indian teams",
+    keywords: "Sports news, cricket, football, olympics, sports",
   });
 
   const [sportsNews, setSportsNews] = useState([]);
@@ -25,7 +25,7 @@ const Sports = () => {
   const [error, setError] = useState("");
 
   const categoryTamilMap = {
-    sports: "விளையாட்டு",
+    sports: "Sports",
   };
 
   const getCategoryLabel = (category) =>
@@ -45,7 +45,7 @@ const Sports = () => {
 
     } catch (err) {
       console.error("Sports API Error:", err);
-      setError("விளையாட்டுச் செய்திகளை ஏற்றுவதில் தோல்வி");
+      setError("Failed to load sports news");
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ const Sports = () => {
 
   // LOADING
   if (loading) {
-    return <div style={{ padding: "20px", textAlign: "center" }}>விளையாட்டுச் செய்திகளை ஏற்றுகிறது...</div>;
+    return <div style={{ padding: "20px", textAlign: "center" }}>Loading sports news...</div>;
   }
 
   // ERROR
@@ -102,14 +102,14 @@ const Sports = () => {
       <div className="sports-header">
 
         <div>
-          <h1>விளையாட்டு</h1>
+          <h1>Sports</h1>
           <p>
-            உலக விளையாட்டு மற்றும் இந்திய அணிகளின் முக்கிய செய்திகளை அறியுங்கள்
+            Get important news about world sports and Indian teams
           </p>
         </div>
 
         <button className="sports-live-btn">
-          <FaFutbol /> விளையாட்டு நேரலை
+          <FaFutbol /> Sports Live
         </button>
 
       </div>
@@ -117,7 +117,7 @@ const Sports = () => {
       {/* EMPTY STATE */}
       {filteredSportsNews.length === 0 ? (
         <div style={{ padding: "20px" }}>
-          தேர்ந்தெடுக்கப்பட்ட தேதியில் விளையாட்டுச் செய்திகள் எதுவும் இல்லை...
+          No sports news available for the selected date...
         </div>
       ) : (
         <>
@@ -133,7 +133,7 @@ const Sports = () => {
 
             <img
               src={filteredSportsNews[0].image}
-              alt={filteredSportsNews[0].titleTa || filteredSportsNews[0].title}
+              alt={filteredSportsNews[0].title}
               className="featured-sports-image"
             />
 
@@ -143,7 +143,7 @@ const Sports = () => {
                 <FaFutbol /> {getCategoryLabel(filteredSportsNews[0].category)}
               </button>
 
-              <h2>{filteredSportsNews[0].titleTa || filteredSportsNews[0].title}</h2>
+              <h2>{filteredSportsNews[0].title}</h2>
 
               <div className="featured-sports-meta">
                 <span>
@@ -175,7 +175,7 @@ const Sports = () => {
 
                 <img
                   src={news.image}
-                  alt={news.titleTa || news.title}
+                  alt={news.title}
                   className="sports-news-image"
                 />
 
@@ -185,10 +185,10 @@ const Sports = () => {
                     <FaFutbol /> {getCategoryLabel(news.category)}
                   </button>
 
-                  <h3>{news.titleTa || news.title}</h3>
+                  <h3>{news.title}</h3>
 
                   <p>
-                    {(news.shortDescriptionTa || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 100)}...
+                    {(news.shortDescription || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 100)}...
                   </p>
 
                   <div className="sports-news-footer">
@@ -203,7 +203,7 @@ const Sports = () => {
                     </div>
 
                     <div className="sports-read-more">
-                      மேலும் வாசிக்க <FaArrowRight />
+                      Read More <FaArrowRight />
                     </div>
 
                   </div>

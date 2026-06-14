@@ -120,14 +120,14 @@ function AllNews() {
     if (isNaN(d.getTime())) return "Unknown Date";
 
     // Options for Date and Year formatting (e.g., "7 June 2026")
-    const dateAndYear = d.toLocaleDateString("ta-IN", {
+    const dateAndYear = d.toLocaleDateString("en-US", {
       day: "numeric",
       month: "long",
       year: "numeric",
     });
 
-    // Options for Day formatting (e.g., "ஞாயிறு")
-    const dayName = d.toLocaleDateString("ta-IN", { weekday: "long" });
+    // Options for Day formatting (e.g., "Sunday")
+    const dayName = d.toLocaleDateString("en-US", { weekday: "long" });
 
     return `${dateAndYear} | ${dayName}`;
   };

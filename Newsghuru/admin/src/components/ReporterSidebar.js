@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/Sidebar.css";
 import { 
-  FaHome, FaPlusSquare, FaFileAlt, FaUserEdit, 
+  FaPlusSquare, FaFileAlt, FaUserEdit, 
   FaUpload, FaTimesCircle, FaRegCheckCircle, 
-  FaBell, FaUserCircle, FaSignOutAlt, FaBolt 
+  FaBell, FaUserCircle, FaSignOutAlt 
 } from "react-icons/fa";
 
 function ReporterSidebar({ isOpen }) {
@@ -23,10 +23,10 @@ function ReporterSidebar({ isOpen }) {
       
       <div className="sidebar-logo-container">
         <div className="sidebar-logo">
-          <img src="/NEWS GHURU LOGO PNG.png" alt="NewsGhuru" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+          <img src="/NEWS GHURU LOGO English.png" alt="NewsGhuru" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
         </div>
         <div className="sidebar-title-text" style={{ textAlign: "center", marginTop: "10px" }}>
-          <span className="logo-title" style={{ fontSize: "24px", display: "block" }}>நியூஸ் குரு</span>
+          <span className="logo-title" style={{ fontSize: "24px", display: "block" }}>News Guru</span>
         </div>
       </div>
 

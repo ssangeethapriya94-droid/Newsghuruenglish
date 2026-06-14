@@ -4,51 +4,51 @@ import { FaCalendarAlt, FaClock, FaSun, FaMoon, FaChevronDown, FaChevronUp } fro
 import { useNavigate, useSearchParams } from "react-router-dom"; // Added for routing without reload
 
 const thithis = [
-  "பிரதமை", "துவிதியை", "திருதியை", "சதுர்த்தி", "பஞ்சமி", "சஷ்டி", "சடுத்து", "அஷ்டமி", 
-  "நவமி", "தசமி", "ஏகாதசி", "துவாதசி", "திரயோதசி", "சதுர்தசி", "பௌர்ணமி", "அமாவாசை"
+  "Prathamai", "Dwithiyai", "Thrithiyai", "Chathurthi", "Panchami", "Sashti", "Saptami", "Ashtami", 
+  "Navami", "Dasami", "Ekadashi", "Dwadashi", "Thrayodashi", "Chathurdashi", "Pournami", "Amavasai"
 ];
 
 const natchathirams = [
-  "அசுவினி", "பரணி", "கார்த்திகை", "ரோகிணி", "மிருகசீரிடம்", "திருவாதிரை", "புனர்பூசம்", "பூசம்",
-  "ஆயில்யம்", "மகம்", "பூரம்", "உத்திரம்", "அஸ்தம்", "சித்திரை", "சுவாதி", "விசாகம்", "அனுஷம்",
-  "கேட்டை", "மூலம்", "பூராடம்", "உத்திராடம்", "திருவோணம்", "அவிட்டம்", "சதயம்", "பூரட்டாதி", "உத்திரட்டாதி", "ரேவதி"
+  "Ashwini", "Bharani", "Karthikai", "Rohini", "Mirugasiridam", "Thiruvathirai", "Punarpoosam", "Poosam",
+  "Aayilyam", "Magam", "Pooram", "Uthiram", "Hastham", "Chithirai", "Swathi", "Visagam", "Anusham",
+  "Kettai", "Moolam", "Pooradam", "Uthiradam", "Thiruvonam", "Avittam", "Sathayam", "Poorattathi", "Uthirattathi", "Revathi"
 ];
 
-const yogams = ["சித்த யோகம்", "அமிர்த யோகம்", "மரண யோகம்"];
-const karanams = ["பவம்", "பாலவம்", "கௌலவம்", "சைதுலை", "கரசை", "வனசை", "பத்திரை"];
+const yogams = ["Siddha Yogam", "Amirtha Yogam", "Marana Yogam"];
+const karanams = ["Bhavam", "Balavam", "Kaulavam", "Thaitula", "Karasai", "Vanasai", "Bhadrai"];
 
 const dailyThoughts = [
-  "அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை பண்பும் பயனும் அது.",
-  "விரோதம் தவிர்ப்பதுவே வாழ்வின் அமைதிக்கு வழி.",
-  "கற்க கசடறக் கற்பவை கற்றபின் நிற்க அதற்குத் தக.",
-  "எப்பொருள் யார்யார்வாய்க் கேட்பினும் அப்பொருள் மெய்ப்பொருள் காண்ப தறிவு.",
-  "ஒழுக்கம் விழுப்பம் தரலான் ஒழுக்கம் உயிரினும் ஓம்பப் படும்.",
-  "இனிய உளவாக இன்னாத கூறல் கனிஇருப்பக் காய்கவர்ந் தற்று.",
-  "பொறுமை கடலினும் பெரிது. பொறுத்தார் பூமி ஆள்வார்.",
-  "அன்பே சிவம். பிறருக்கு செய்யும் நல்ல காரியங்களே நம்மை உயர்த்தும்.",
-  "முயற்சி திருவினையாக்கும் முயற்றின்மை இன்மை புகுத்தி விடும்.",
-  "ஈதல் இசைபட வாழ்தல் அதுவல்லது ஊதியம் இல்லை உயிர்க்கு.",
-  "வாய்மை எனப்படுவது யாதெனின் யாதொன்றும் தீமை இலாத சொலல்.",
-  "நன்றி மறப்பது நன்றன்று நன்றல்லது அன்றே மறப்பது நன்று.",
-  "சினம் என்னும் சேர்ந்தாரைக் கொல்லி இனம் என்னும் ஏமப் புணையைச் சுடும்.",
-  "வினைவலியும் தன்வலியும் மாற்றான் வலியும் துணைவலியும் தூக்கிச் செயல்.",
-  "கெடுவாக வையா துலகம் நடுவாக நன்றிக்கண் தங்கியான் தாழ்வு.",
-  "அறிவற்றங் காக்கும் கருவி செறுவார்க்கும் உள்ளழிக்கல் ஆகா அரண்.",
-  "சொல்லுக சொல்லில் பயனுடைய சொல்லற்க சொல்லில் பயனிலாச் சொல்.",
-  "மனத்துக்கண் மாசிலன் ஆதல் அனைத்துஅறன் ஆகுல நீர பிற.",
-  "உள்ளத்தால் பொய்யாது ஒழுகின் உலகத்தார் உள்ளத்துள் எல்லாம் உளன்.",
-  "துப்பார்க்குத் துப்பாய துப்பாக்கித் துப்பார்க்குத் துப்பாய தூஉம் மழை.",
-  "எண்ணித் துணிக கருமம் துணிந்தபின் எண்ணுவம் என்பது இழுக்கு.",
-  "காலத்தினால் செய்த நன்றி சிறிதுஎனினும் ஞாலத்தின் மாணப் பெரிது.",
-  "பணியுமாம் என்றும் பெருமை சிறுமை அணியுமாம் தன்னை வியந்து.",
-  "தொட்டனைத் தூறும் மணற்கேணி மாந்தர்க்குக் கற்றனைத் தூறும் அறிவு.",
-  "உடுக்கை இழந்தவன் கைபோல ஆங்கே இடுக்கண் களைவதாம் நட்பு.",
-  "கேடில் விழுச்செல்வம் கல்வி ஒருவற்கு மாடல்ல மற்றை யவை.",
-  "யாகாவார் ஆயினும் நாகாக்க காவாக்கால் சோகாப்பர் சொல்லிழுக்குப் பட்டு.",
-  "அகர முதல எழுத்தெல்லாம் ஆதி பகவன் முதற்றே உலகு.",
-  "குணமென்னும் குன்றேறி நின்றார் வெகுளி கணமேயும் காத்தல் அரிது.",
-  "இடுக்கண் வருங்கால் நகுக அதனை அடுத்தூர்வது அஃதொப்பது இல்.",
-  "சுழன்றும்ஏர்ப் பின்னது உலகம் அதனால் உழந்தும் உழவே தலை."
+  "Love and virtue make a happy home.",
+  "Avoiding enmity is the way to peace.",
+  "Learn flawlessly, and act accordingly.",
+  "Wisdom is finding the truth in everything.",
+  "Discipline is greater than life itself.",
+  "Speaking harshly instead of sweetly is like eating unripe fruit.",
+  "Patience is greater than the ocean. Those who endure will rule the world.",
+  "Love is God. Doing good deeds for others elevates us.",
+  "Effort brings wealth; lack of it brings poverty.",
+  "Live with fame, or it's better not to live.",
+  "Truthfulness is speaking without causing harm.",
+  "It is not good to forget a favor.",
+  "Anger destroys oneself and one's family.",
+  "Weigh the strengths of all before acting.",
+  "Do not wish harm to anyone.",
+  "Wisdom is a fortress that cannot be destroyed.",
+  "Speak only words that are useful.",
+  "A pure mind is the foundation of all virtues.",
+  "He who is truthful lives in the hearts of all.",
+  "Rain provides food and is itself food.",
+  "Think before you act; acting first is foolish.",
+  "A timely favor is larger than the world.",
+  "True greatness is always humble.",
+  "Knowledge grows as much as you learn.",
+  "True friendship is like a hand that catches a falling garment.",
+  "Education is the only imperishable wealth.",
+  "Control your tongue, or suffer the consequences.",
+  "Just as the alphabet starts with 'A', the world begins with God.",
+  "Even great men find it hard to control sudden anger.",
+  "Laugh in the face of adversity; there is nothing like it.",
+  "Farming is the most important work in the world."
 ];
 
 const dayOfWeekTimings = {
@@ -58,9 +58,9 @@ const dayOfWeekTimings = {
     raghuKalam: "04:30 PM - 06:00 PM",
     yamagandam: "12:00 PM - 01:30 PM",
     kuligai: "03:00 PM - 04:30 PM",
-    soolam: "மேற்கு",
-    parigaram: "வெல்லம்",
-    chandrashtamam: "பூராடம்"
+    soolam: "West",
+    parigaram: "Jaggery",
+    chandrashtamam: "Pooradam"
   },
   1: {
     nallaNeramMorning: "06:30 AM - 07:30 AM",
@@ -68,9 +68,9 @@ const dayOfWeekTimings = {
     raghuKalam: "07:30 AM - 09:00 AM",
     yamagandam: "10:30 AM - 12:00 PM",
     kuligai: "01:30 PM - 03:00 PM",
-    soolam: "கிழக்கு",
-    parigaram: "தயிர்",
-    chandrashtamam: "உத்திராடம்"
+    soolam: "East",
+    parigaram: "Curd",
+    chandrashtamam: "Uthiradam"
   },
   2: {
     nallaNeramMorning: "07:30 AM - 08:30 AM",
@@ -78,9 +78,9 @@ const dayOfWeekTimings = {
     raghuKalam: "03:00 PM - 04:30 PM",
     yamagandam: "09:00 AM - 10:30 AM",
     kuligai: "12:00 PM - 01:30 PM",
-    soolam: "வடக்கு",
-    parigaram: "பால்",
-    chandrashtamam: "திருவோணம்"
+    soolam: "North",
+    parigaram: "Milk",
+    chandrashtamam: "Thiruvonam"
   },
   3: {
     nallaNeramMorning: "09:00 AM - 10:30 AM",
@@ -88,9 +88,9 @@ const dayOfWeekTimings = {
     raghuKalam: "12:00 PM - 01:30 PM",
     yamagandam: "07:30 AM - 09:00 AM",
     kuligai: "10:30 AM - 12:00 PM",
-    soolam: "வடக்கு",
-    parigaram: "புளிதண்ணீர்",
-    chandrashtamam: "அவிட்டம்"
+    soolam: "North",
+    parigaram: "Tamarind Water",
+    chandrashtamam: "Avittam"
   },
   4: {
     nallaNeramMorning: "09:00 AM - 10:30 AM",
@@ -98,9 +98,9 @@ const dayOfWeekTimings = {
     raghuKalam: "01:30 PM - 03:00 PM",
     yamagandam: "06:00 AM - 07:30 AM",
     kuligai: "09:00 AM - 10:30 AM",
-    soolam: "தெற்கு",
-    parigaram: "தயிர்",
-    chandrashtamam: "சதயம்"
+    soolam: "South",
+    parigaram: "Curd",
+    chandrashtamam: "Sathayam"
   },
   5: {
     nallaNeramMorning: "09:00 AM - 10:30 AM",
@@ -108,9 +108,9 @@ const dayOfWeekTimings = {
     raghuKalam: "10:30 AM - 12:00 PM",
     yamagandam: "03:00 PM - 04:30 PM",
     kuligai: "07:30 AM - 09:00 AM",
-    soolam: "மேற்கு",
-    parigaram: "சர்க்கரை",
-    chandrashtamam: "பூரட்டாதி"
+    soolam: "West",
+    parigaram: "Sugar",
+    chandrashtamam: "Poorattathi"
   },
   6: {
     nallaNeramMorning: "07:30 AM - 08:30 AM",
@@ -118,9 +118,9 @@ const dayOfWeekTimings = {
     raghuKalam: "09:00 AM - 10:30 AM",
     yamagandam: "01:30 PM - 03:00 PM",
     kuligai: "06:00 AM - 07:30 AM",
-    soolam: "கிழக்கு",
-    parigaram: "எண்ணெய்",
-    chandrashtamam: "உத்திரட்டாதி"
+    soolam: "East",
+    parigaram: "Oil",
+    chandrashtamam: "Uthirattathi"
   }
 };
 
@@ -303,14 +303,14 @@ const DateBar = () => {
   };
 
   /* TAMIL CALENDAR DATA METRICS */
-  const tamilWeekDays = ["ஞாயிறு", "திங்கள்", "செவ்வாய்", "புதன்", "வியாழன்", "வெள்ளி", "சனி"];
-  const tamilMonths = ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"];
+  const tamilWeekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const tamilMonths = ["Chithirai", "Vaikasi", "Aani", "Aadi", "Aavani", "Purattasi", "Aippasi", "Karthikai", "Margazhi", "Thai", "Maasi", "Panguni"];
   const tamilYears = [
-    "பிரபவ","விபவ","சுக்ல","பிரமோதூத","பிரஜோற்பத்தி","ஆங்கீரச","ஸ்ரீமுக","பவ","யுவ","தாது","ஈஸ்வர","வெகுதான்ய","பிரமாதி",
-    "விக்ரம","விஷு","சித்திரபானு","சுபானு","தாரண","பார்த்திப","விய","சர்வஜித்","சர்வதாரி","விரோதி","விக்ருதி","கர","நந்தன","விஜய",
-    "ஜய","மன்மத","துர்முகி","ஹேவிளம்பி","விளம்பி","விகாரி","சார்வரி","பிலவ","சுபகிருது","சோபகிருது","குரோதி","விசுவாவசு","பராபவ",
-    "பிலவங்க","கீலக","சௌமிய","சாதாரண","விரோதிகிருது","பரிதாபி","பிரமாதீச","ஆனந்த","ராக்ஷச","நள","பிங்கள","காளயுக்தி",
-    "சித்தார்த்தி","ரௌத்திரி","துன்மதி","துந்துபி","रुத்ரோத்காரி","ரக்தாட்சி","குரோதன","அட்சய"
+    "Prabhava","Vibhava","Sukla","Pramodhootha","Prachorpaththi","Aangirasa","Srimuga","Bhava","Yuva","Dhaathu","Eesvara","Vehudhanya","Pramathi",
+    "Vikrama","Vishu","Chitrabaanu","Subaanu","Dhaarana","Paarthiba","Viya","Sarvajith","Sarvadhari","Virodhi","Vikruthi","Kara","Nandhana","Vijaya",
+    "Jaya","Manmatha","Dhunmugi","Hevilambi","Vilambi","Vikari","Sarvari","Plava","Subakrithu","Sobakrithu","Krodhi","Visuvaavasu","Parabhava",
+    "Plavanga","Keelaka","Saumiya","Sadharana","Virodhikrithu","Paridhaabi","Pramaadhisa","Aanandha","Rakshasa","Nala","Pingala","Kalayukthi",
+    "Siddharthi","Raudhri","Dhunmathi","Dhundhubhi","Rudhrodhgaari","Raktakshi","Krodhana","Akshaya"
   ];
 
   const day = displayDate.getDay();
@@ -342,10 +342,10 @@ const DateBar = () => {
   const tamilYearIndex = ((cycleYear - 1987) % 60 + 60) % 60;
   const tamilYear = tamilYears[tamilYearIndex];
 
-  const normalDate = `${date} ${displayDate.toLocaleString("ta-IN", { month: "long" })} ${year}`;
-  const tamilFullDate = `${tamilDate} ${tamilMonth}, ${tamilYear} ஆண்டு`;
+  const normalDate = `${date} ${displayDate.toLocaleString("en-US", { month: "long" })} ${year}`;
+  const tamilFullDate = `${tamilDate} ${tamilMonth}, ${tamilYear} Year`;
 
-  const time = currentTime.toLocaleTimeString("ta-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+  const time = currentTime.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
   const hour = currentTime.getHours();
   const TimeIcon = hour >= 6 && hour < 18 ? FaSun : FaMoon;
 
@@ -382,7 +382,7 @@ const DateBar = () => {
           <div className="dinamalar-calendar-panel" onClick={(e) => e.stopPropagation()}>
             {/* Row 1: Header Navigation */}
             <div className="dc-header">
-              <button type="button" className="dc-nav-btn" onClick={handlePrevDay}>&lt; முந்தைய</button>
+              <button type="button" className="dc-nav-btn" onClick={handlePrevDay}>&lt; Previous</button>
               
               <div 
                 className="dc-date-picker-wrapper" 
@@ -391,7 +391,7 @@ const DateBar = () => {
                   e.stopPropagation();
                   setShowCalendar(!showCalendar);
                 }}
-                title="தேதியைத் தேர்ந்தெடுக்கவும்"
+                title="Date Select"
               >
                 <FaCalendarAlt className="dc-cal-icon" />
                 <span className="dc-date-input-text">
@@ -403,20 +403,20 @@ const DateBar = () => {
                   <div className="custom-calendar-popup" onClick={(e) => e.stopPropagation()}>
                     <div className="cc-header">
                       <span className="cc-month-year">
-                        {calendarMonth.toLocaleString("ta-IN", { month: "long" })}, {calendarMonth.getFullYear()}
+                        {calendarMonth.toLocaleString("en-US", { month: "long" })}, {calendarMonth.getFullYear()}
                       </span>
                       <div className="cc-nav-arrows">
-                        <button type="button" className="cc-arrow-btn" onClick={prevMonth} title="முந்தைய மாதம்">
+                        <button type="button" className="cc-arrow-btn" onClick={prevMonth} title="Previous Month">
                           <FaChevronUp size={10} />
                         </button>
-                        <button type="button" className="cc-arrow-btn" onClick={nextMonth} title="அடுத்த மாதம்">
+                        <button type="button" className="cc-arrow-btn" onClick={nextMonth} title="Next Month">
                           <FaChevronDown size={10} />
                         </button>
                       </div>
                     </div>
                     
                     <div className="cc-weekdays">
-                      {["ஞா", "தி", "செ", "பு", "வி", "வெ", "ச"].map(d => (
+                      {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map(d => (
                         <div key={d} className="cc-weekday">{d}</div>
                       ))}
                     </div>
@@ -445,10 +445,10 @@ const DateBar = () => {
                     
                     <div className="cc-footer">
                       <button type="button" className="cc-footer-btn" onClick={handleCalendarClear}>
-                        அழி
+                        Clear
                       </button>
                       <button type="button" className="cc-footer-btn" onClick={handleCalendarToday}>
-                        இன்று
+                        Today
                       </button>
                     </div>
                   </div>
@@ -461,18 +461,18 @@ const DateBar = () => {
                 onClick={handleNextDay}
                 disabled={isNextDisabled}
               >
-                அடுத்த &gt;
+                Next &gt;
               </button>
             </div>
 
             {/* Row 2: Display Info */}
             <div className="dc-big-dates-row">
               <div className="dc-big-date-box left-box">
-                <div className="dc-month-text">{displayDate.toLocaleString("ta-IN", { month: "long" })}</div>
+                <div className="dc-month-text">{displayDate.toLocaleString("en-US", { month: "long" })}</div>
                 <div className="dc-huge-text">{date}</div>
               </div>
               <div className="dc-big-date-box right-box">
-                <div className="dc-month-text">{tamilMonth} <br/> {tamilYear} வருடம்</div>
+                <div className="dc-month-text">{tamilMonth} <br/> {tamilYear} Year</div>
                 <div className="dc-huge-text highlight-text">{tamilDate}</div>
                 <div className="dc-special-days"></div>
               </div>
@@ -480,7 +480,7 @@ const DateBar = () => {
 
             {/* Row 3: Info Bar */}
             <div className="dc-day-info-bar">
-              <span>{displayDate.toLocaleString("ta-IN", { month: "long" })} {date}, {year}</span>
+              <span>{displayDate.toLocaleString("en-US", { month: "long" })} {date}, {year}</span>
               <span className="dc-day-name">{tamilWeekDays[day]}</span>
               <span></span>
             </div>
@@ -489,15 +489,15 @@ const DateBar = () => {
             <div className="dc-timings-section" onClick={(e) => e.stopPropagation()}>
               <div className="dc-timings-col">
                 <div className="dc-timing-item">
-                  <span className="dc-label">நல்ல நேரம் (காலை)</span>
+                  <span className="dc-label">Good Time (Morning)</span>
                   <span className="dc-val">{info.nallaNeramMorning}</span>
                 </div>
                 <div className="dc-timing-item">
-                  <span className="dc-label">நல்ல நேரம் (மாலை)</span>
+                  <span className="dc-label">Good Time (Evening)</span>
                   <span className="dc-val">{info.nallaNeramEvening}</span>
                 </div>
                 <div className="dc-timing-item">
-                  <span className="dc-label">இராகு காலம்</span>
+                  <span className="dc-label">Rahu Kalam</span>
                   <span className="dc-val">{info.raghuKalam}</span>
                 </div>
               </div>
@@ -508,15 +508,15 @@ const DateBar = () => {
 
               <div className="dc-timings-col">
                 <div className="dc-timing-item">
-                  <span className="dc-label">எமகண்டம்</span>
+                  <span className="dc-label">Yama Gandam</span>
                   <span className="dc-val">{info.yamagandam}</span>
                 </div>
                 <div className="dc-timing-item">
-                  <span className="dc-label">குளிகை</span>
+                  <span className="dc-label">Kuligai</span>
                   <span className="dc-val">{info.kuligai}</span>
                 </div>
                 <div className="dc-timing-item">
-                  <span className="dc-label">சூலம் / பரிகாரம்</span>
+                  <span className="dc-label">Soolam / Parigaram</span>
                   <span className="dc-val">{info.soolam} / {info.parigaram}</span>
                 </div>
               </div>
@@ -526,25 +526,25 @@ const DateBar = () => {
             <div className="dc-panchangam-section" onClick={(e) => e.stopPropagation()}>
               <div className="dc-panchangam-col">
                 <div className="dc-timing-item">
-                  <span className="dc-label">திதி</span>
+                  <span className="dc-label">Thithi</span>
                   <span className="dc-val">{info.thithi}</span>
                 </div>
                 <div className="dc-timing-item">
-                  <span className="dc-label">நட்சத்திரம்</span>
+                  <span className="dc-label">Star</span>
                   <span className="dc-val">{info.natchathiram}</span>
                 </div>
               </div>
               <div className="dc-panchangam-col">
                 <div className="dc-timing-item">
-                  <span className="dc-label">யோகம்</span>
+                  <span className="dc-label">Yogam</span>
                   <span className="dc-val">{info.yogam}</span>
                 </div>
                 <div className="dc-timing-item">
-                  <span className="dc-label">கரணம்</span>
+                  <span className="dc-label">Karanam</span>
                   <span className="dc-val">{info.karanam}</span>
                 </div>
                 <div className="dc-timing-item">
-                  <span className="dc-label">சந்திராஷ்டமம்</span>
+                  <span className="dc-label">Chandrashtamam</span>
                   <span className="dc-val">{info.chandrashtamam}</span>
                 </div>
               </div>
@@ -553,7 +553,7 @@ const DateBar = () => {
             {/* Row 6: Daily Quote Box */}
             <div className="dc-info-box" onClick={(e) => e.stopPropagation()}>
               <div className="dc-info-text">
-                <p style={{ margin: "0 0 5px 0", color: "var(--text-primary)", fontWeight: "700" }}>இன்றைய சிந்தனை:</p>
+                <p style={{ margin: "0 0 5px 0", color: "var(--text-primary)", fontWeight: "700" }}>Thought of the Day:</p>
                 <p style={{ fontSize: "14.5px", color: "var(--accent-orange)", fontStyle: "italic", fontWeight: "600", margin: 0 }}>
                   "{info.thought}"
                 </p>

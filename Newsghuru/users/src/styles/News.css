@@ -26,8 +26,8 @@
 /* LIVE */
 
 .live-badge {
-  background: var(--accent-orange);
-  color: white;
+  background: linear-gradient(90deg, #ea580c, #ef4444);
+  color: #fff;
   font-size: 11px;
   padding: 6px 12px;
   border-radius: 30px;

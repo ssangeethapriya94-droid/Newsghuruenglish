@@ -15,9 +15,9 @@ const Politics = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "அரசியல்",
-    description: "தமிழக மற்றும் இந்திய அரசியல் செய்திகளை அறியுங்கள், அரசியல் தலைவர்கள் மற்றும் கட்சி நிகழ்வுகள்",
-    keywords: "அரசியல் செய்திகள், இந்திய அரசியல், தமிழக அரசியல், தேர்தல் செய்திகள்",
+    title: "Politics",
+    description: "Know Tamil Nadu and India Politics news, Political leaders and party events",
+    keywords: "Politics news, Indian Politics, Tamil Nadu Politics, Election news",
   });
 
   const [politicsNews, setPoliticsNews] = useState([]);
@@ -25,7 +25,7 @@ const Politics = () => {
   const [error, setError] = useState("");
 
   const categoryTamilMap = {
-    politics: "அரசியல்",
+    politics: "Politics",
   };
 
   const getCategoryLabel = (category) =>
@@ -45,7 +45,7 @@ const Politics = () => {
 
     } catch (err) {
       console.error("Politics API Error:", err);
-      setError("அரசியல் செய்திகளை ஏற்றுவதில் தோல்வி");
+      setError("Failed to load Politics news");
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ const Politics = () => {
 
   // LOADING
   if (loading) {
-    return <div style={{ padding: "20px", textAlign: "center" }}>அரசியல் செய்திகளை ஏற்றுகிறது...</div>;
+    return <div style={{ padding: "20px", textAlign: "center" }}>Politics Loading news...</div>;
   }
 
   // ERROR
@@ -102,12 +102,12 @@ const Politics = () => {
       <div className="politics-header">
 
         <div>
-          <h1>அரசியல்</h1>
-          <p>தமிழக மற்றும் இந்திய அரசியல் செய்திகளை அறியுங்கள்</p>
+          <h1>Politics</h1>
+          <p>Know Tamil Nadu and India Politics news</p>
         </div>
 
         <button className="politics-live-btn">
-          <FaLandmark /> அரசியல் நேரலை
+          <FaLandmark /> Politics Live
         </button>
 
       </div>
@@ -115,7 +115,7 @@ const Politics = () => {
       {/* EMPTY STATE */}
       {filteredPoliticsNews.length === 0 ? (
         <div style={{ padding: "20px" }}>
-          தேர்ந்தெடுக்கப்பட்ட தேதியில் அரசியல் செய்திகள் எதுவும் இல்லை...
+          No politics news available for the selected date...
         </div>
       ) : (
         <>
@@ -132,7 +132,7 @@ const Politics = () => {
             <img
               src={filteredPoliticsNews[0].image}
               className="featured-politics-image"
-              alt={filteredPoliticsNews[0].titleTa || filteredPoliticsNews[0].title}
+              alt={filteredPoliticsNews[0].title}
             />
 
             <div className="featured-politics-content">
@@ -141,7 +141,7 @@ const Politics = () => {
                 <FaLandmark /> {getCategoryLabel(filteredPoliticsNews[0].category)}
               </button>
 
-              <h2>{filteredPoliticsNews[0].titleTa || filteredPoliticsNews[0].title}</h2>
+              <h2>{filteredPoliticsNews[0].title}</h2>
 
               <div className="featured-politics-meta">
                 <span>
@@ -174,7 +174,7 @@ const Politics = () => {
                 <img
                   src={news.image}
                   className="politics-news-image"
-                  alt={news.titleTa || news.title}
+                  alt={news.title}
                 />
 
                 <div className="politics-news-content">
@@ -183,10 +183,10 @@ const Politics = () => {
                     <FaLandmark /> {getCategoryLabel(news.category)}
                   </button>
 
-                  <h3>{news.titleTa || news.title}</h3>
+                  <h3>{news.title}</h3>
 
                   <p>
-                    {(news.shortDescriptionTa || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 100)}...
+                    {(news.shortDescription || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 100)}...
                   </p>
 
                   <div className="politics-news-footer">
@@ -201,7 +201,7 @@ const Politics = () => {
                     </div>
 
                     <div className="politics-read-more">
-                      மேலும் வாசிக்க <FaArrowRight />
+                      Read More <FaArrowRight />
                     </div>
 
                   </div>

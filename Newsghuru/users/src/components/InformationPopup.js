@@ -49,10 +49,10 @@ function InformationPopup() {
         <div className="info-popup-icon-container">
           <FaInfoCircle className="info-popup-icon" />
         </div>
-        <h3 className="info-popup-title">அறிவிப்பு</h3>
+        <h3 className="info-popup-title">Announcement</h3>
         <p className="info-popup-message">{message}</p>
         <button className="info-popup-action-btn" onClick={handleClose}>
-          சரி, புரிந்தது
+          Okay, understood
         </button>
       </div>
     </div>

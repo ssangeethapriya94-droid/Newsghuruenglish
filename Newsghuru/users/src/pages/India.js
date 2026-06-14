@@ -15,9 +15,9 @@ const India = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "இந்தியா",
-    description: "இந்தியாவின் தேசிய செய்திகள், தலைநகர செய்திகள், அரசியல் மற்றும் முக்கியமான நிகழ்வுகள்",
-    keywords: "இந்தியா செய்திகள், டெல்லி செய்திகள், தேசிய செய்திகள், இந்திய அரசியல்",
+    title: "India",
+    description: "Get the latest national news from India, including capital news, politics, and major events",
+    keywords: "India news, Delhi news, national news, Indian politics",
   });
 
   const [indiaNews, setIndiaNews] = useState([]);
@@ -25,7 +25,7 @@ const India = () => {
   const [error, setError] = useState("");
 
   const categoryTamilMap = {
-    india: "இந்தியா",
+    india: "India",
   };
 
   const getCategoryLabel = (category) =>
@@ -45,7 +45,7 @@ const India = () => {
 
     } catch (err) {
       console.error("India API Error:", err);
-      setError("இந்தியச் செய்திகளை ஏற்றுவதில் தோல்வி");
+      setError("Failed to load India news");
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ const India = () => {
 
   // LOADING
   if (loading) {
-    return <div style={{ padding: "30px", textAlign: "center" }}>செய்திகளை ஏற்றுகிறது...</div>;
+    return <div style={{ padding: "30px", textAlign: "center" }}>Loading news...</div>;
   }
 
   // ERROR
@@ -102,12 +102,12 @@ const India = () => {
       <div className="india-header">
 
         <div>
-          <h1>இந்தியா</h1>
-          <p>இந்தியாவின் முக்கிய தேசிய செய்திகளை அறியுங்கள்</p>
+          <h1>India</h1>
+          <p>Get the latest national news from India</p>
         </div>
 
         <button className="india-live-btn">
-          <FaFlag /> இந்தியா நேரலை
+          <FaFlag /> India Live
         </button>
 
       </div>
@@ -115,7 +115,7 @@ const India = () => {
       {/* EMPTY STATE */}
       {filteredIndiaNews.length === 0 ? (
         <div style={{ padding: "30px" }}>
-          தேர்ந்தெடுக்கப்பட்ட தேதியில் இந்தியச் செய்திகள் எதுவும் இல்லை
+          No Indian news available for the selected date
         </div>
       ) : (
         <>
@@ -131,7 +131,7 @@ const India = () => {
 
             <img
               src={filteredIndiaNews[0].image}
-              alt={filteredIndiaNews[0].titleTa || filteredIndiaNews[0].title}
+              alt={filteredIndiaNews[0].title}
               className="featured-india-image"
             />
 
@@ -141,7 +141,7 @@ const India = () => {
                 <FaFlag /> {getCategoryLabel(filteredIndiaNews[0].category)}
               </button>
 
-              <h2>{filteredIndiaNews[0].titleTa || filteredIndiaNews[0].title}</h2>
+              <h2>{filteredIndiaNews[0].title}</h2>
 
               <div className="featured-india-meta">
                 <span>
@@ -173,7 +173,7 @@ const India = () => {
 
                 <img
                   src={news.image}
-                  alt={news.titleTa || news.title}
+                  alt={news.title}
                   className="india-news-image"
                 />
 
@@ -183,10 +183,10 @@ const India = () => {
                     <FaFlag /> {getCategoryLabel(news.category)}
                   </button>
 
-                  <h3>{news.titleTa || news.title}</h3>
+                  <h3>{news.title}</h3>
 
                   <p>
-                    {(news.shortDescriptionTa || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 110)}...
+                    {(news.shortDescription || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 110)}...
                   </p>
 
                   <div className="india-news-footer">
@@ -201,7 +201,7 @@ const India = () => {
                     </div>
 
                     <div className="india-read-more">
-                      மேலும் வாசிக்க <FaArrowRight />
+                      Read More <FaArrowRight />
                     </div>
 
                   </div>

@@ -15,9 +15,9 @@ const Education = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "கல்வி",
-    description: "கல்வி, மாணவர்கள் மற்றும் பல்கலைக்கழகங்களின் முக்கிய செய்திகளை அறியுங்கள்",
-    keywords: "கல்வி செய்திகள், பள்ளி செய்திகள், கல்லூரி செய்திகள், தேர்வு முடிவுகள்",
+    title: "Education",
+    description: "Education, get the latest news for students and universities",
+    keywords: "Education news, school news, college news, exam results",
   });
 
   const [educationNews, setEducationNews] = useState([]);
@@ -25,7 +25,7 @@ const Education = () => {
   const [error, setError] = useState("");
 
   const categoryTamilMap = {
-    education: "கல்வி",
+    education: "Education",
   };
 
   const getCategoryLabel = (category) =>
@@ -45,7 +45,7 @@ const Education = () => {
 
     } catch (err) {
       console.error("Education API Error:", err);
-      setError("கல்விச் செய்திகளை ஏற்றுவதில் தோல்வி");
+      setError("Failed to load education news");
     } finally {
       setLoading(false);
     }
@@ -85,7 +85,7 @@ const Education = () => {
   if (loading) {
     return (
       <div style={{ textAlign: "center", marginTop: "100px" }}>
-        கல்விச் செய்திகளை ஏற்றுகிறது...
+        Loading Education news...
       </div>
     );
   }
@@ -106,14 +106,14 @@ const Education = () => {
       <div className="education-header">
 
         <div>
-          <h1>கல்வி</h1>
+          <h1>Education</h1>
           <p>
-            கல்வி, மாணவர்கள் மற்றும் பல்கலைக்கழகங்களின் முக்கிய செய்திகளை அறியுங்கள்
+            Education, get the latest news for students and universities
           </p>
         </div>
 
         <button className="education-live-btn">
-          <FaGraduationCap /> கல்வி நேரலை
+          <FaGraduationCap /> Education Live
         </button>
 
       </div>
@@ -121,7 +121,7 @@ const Education = () => {
       {/* EMPTY STATE */}
       {filteredEducationNews.length === 0 ? (
         <div style={{ padding: "20px" }}>
-          தேர்ந்தெடுக்கப்பட்ட தேதியில் கல்விச் செய்திகள் எதுவும் இல்லை...
+          No education news available for the selected date...
         </div>
       ) : (
         <>
@@ -137,7 +137,7 @@ const Education = () => {
 
             <img
               src={filteredEducationNews[0].image}
-              alt={filteredEducationNews[0].titleTa || filteredEducationNews[0].title}
+              alt={filteredEducationNews[0].title}
               className="featured-education-image"
             />
 
@@ -147,7 +147,7 @@ const Education = () => {
                 <FaGraduationCap /> {getCategoryLabel(filteredEducationNews[0].category)}
               </button>
 
-              <h2>{filteredEducationNews[0].titleTa || filteredEducationNews[0].title}</h2>
+              <h2>{filteredEducationNews[0].title}</h2>
 
               <div className="featured-education-meta">
                 <span>
@@ -179,7 +179,7 @@ const Education = () => {
 
                 <img
                   src={news.image}
-                  alt={news.titleTa || news.title}
+                  alt={news.title}
                   className="education-news-image"
                 />
 
@@ -189,10 +189,10 @@ const Education = () => {
                     <FaGraduationCap /> {getCategoryLabel(news.category)}
                   </button>
 
-                  <h3>{news.titleTa || news.title}</h3>
+                  <h3>{news.title}</h3>
 
                   <p>
-                    {(news.shortDescriptionTa || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").substring(0, 100)}...
+                    {(news.shortDescription || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").substring(0, 100)}...
                   </p>
 
                   <div className="education-news-footer">
@@ -207,7 +207,7 @@ const Education = () => {
                     </div>
 
                     <div className="education-read-more">
-                      மேலும் வாசிக்க <FaArrowRight />
+                      Read More <FaArrowRight />
                     </div>
 
                   </div>

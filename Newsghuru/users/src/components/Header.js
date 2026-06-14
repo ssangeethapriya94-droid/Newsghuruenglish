@@ -40,28 +40,28 @@ const Header = ({ setSidebar, darkMode, setDarkMode, setAuthPopupVisible, onLogi
     const term = searchTerm.toLowerCase().trim();
 
     const categoryMap = {
-      "தற்போதைய செய்திகள்": "latest-news",
-      "முக்கிய செய்திகள்": "latest-news",
+      "Latest News": "latest-news",
+      "Breaking News": "latest-news",
       "breaking": "latest-news",
       "latest news": "latest-news",
-      "தமிழகம்": "tamilnadu",
+      "Tamil Nadu": "tamilnadu",
       "tamil": "tamilnadu",
       "tamilnadu": "tamilnadu",
-      "இந்தியா": "india",
+      "India": "india",
       "india": "india",
-      "உலகம்": "world",
+      "World": "world",
       "world": "world",
-      "வணிகம்": "business",
+      "Business": "business",
       "business": "business",
-      "விளையாட்டு": "sports",
+      "Sports": "sports",
       "sports": "sports",
-      "கல்வி": "education",
+      "Education": "education",
       "education": "education",
-      "அரசியல்": "politics",
+      "Politics": "politics",
       "politics": "politics",
-      "சினிமா": "cinema",
+      "Cinema": "cinema",
       "cinema": "cinema",
-      "தொழில்நுட்பம்": "tech",
+      "Technology": "tech",
       "technology": "tech",
     };
 
@@ -80,7 +80,7 @@ const Header = ({ setSidebar, darkMode, setDarkMode, setAuthPopupVisible, onLogi
           </button>
           <input
             type="text"
-            placeholder="தேடுக..."
+            placeholder="Search..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             autoFocus
@@ -104,11 +104,11 @@ const Header = ({ setSidebar, darkMode, setDarkMode, setAuthPopupVisible, onLogi
 
       <div className="logo-section">
         <img
-          src="/NEWS GHURU LOGO PNG.png"
+          src="/NEWS GHURU LOGO English.png"
           alt="logo"
           className="logo-image"
         />
-        <h1 className="logo-title">நியூஸ் குரு</h1>
+        <h1 className="logo-title">News Guru</h1>
       </div>
 
       <div className="header-actions">

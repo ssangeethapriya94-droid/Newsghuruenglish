@@ -16,9 +16,9 @@ const LatestNews = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "முக்கிய செய்திகள்",
-    description: "உடனுக்குடன் உடையும் தமிழகம் மற்றும் இந்திய தற்போதைய செய்திகள், நேரலை செய்திகள்",
-    keywords: "தற்போதைய செய்திகள், நேரலை செய்திகள், பிரேக்கிங் நியூஸ், தமிழ் செய்திகள்",
+    title: "Breaking News",
+    description: "Get instant breaking news from Tamil Nadu and India, Live updates",
+    keywords: "Latest News, Live Updates, Tamil Nadu News, English News",
   });
 
   const [loading, setLoading] = useState(true);
@@ -39,7 +39,7 @@ const LatestNews = () => {
 
     } catch (err) {
       console.error("Latest News Error:", err);
-      setError("செய்திகளை ஏற்றுவதில் தோல்வி");
+      setError("Failed to load news");
     } finally {
       setLoading(false);
     }
@@ -79,7 +79,7 @@ const LatestNews = () => {
   if (loading) {
     return (
       <div style={{ textAlign: "center", marginTop: "100px" }}>
-        செய்திகளை ஏற்றுகிறது...
+        Loading news...
       </div>
     );
   }
@@ -104,17 +104,17 @@ const LatestNews = () => {
 
       {/* TITLE */}
       <div className="breaking-page-title">
-        <h1>முக்கிய செய்திகள்</h1>
+        <h1>Breaking News</h1>
 
         <span className="live-badge">
-          <FaFire /> நேரலை
+          <FaFire /> Live
         </span>
       </div>
 
       {/* EMPTY STATE */}
       {filteredBreaking.length === 0 ? (
         <div style={{ padding: "20px" }}>
-          தேர்ந்தெடுக்கப்பட்ட தேதியில் முக்கிய செய்திகள் எதுவும் இல்லை...
+          No Breaking News available for the selected date...
         </div>
       ) : (
         <>
@@ -130,19 +130,19 @@ const LatestNews = () => {
             <img
               src={filteredBreaking[0].image}
               className="main-breaking-image"
-              alt={filteredBreaking[0].titleTa || filteredBreaking[0].title}
+              alt={filteredBreaking[0].title}
             />
 
             <div className="main-breaking-content">
 
               <button className="breaking-category-btn">
-                <FaFire /> முக்கிய செய்திகள்
+                <FaFire /> Breaking News
               </button>
 
-              <h2>{filteredBreaking[0].titleTa || filteredBreaking[0].title}</h2>
+              <h2>{filteredBreaking[0].title}</h2>
 
               <p>
-                {(filteredBreaking[0].shortDescriptionTa || filteredBreaking[0].description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").substring(0, 180)}...
+                {(filteredBreaking[0].description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").substring(0, 180)}...
               </p>
 
               <div className="breaking-meta">
@@ -172,19 +172,19 @@ const LatestNews = () => {
                 <img
                   src={item.image}
                   className="breaking-news-image"
-                  alt={item.titleTa || item.title}
+                  alt={item.title}
                 />
 
                 <div className="breaking-news-content">
 
                   <button className="breaking-category-btn">
-                    <FaFire /> முக்கிய செய்திகள்
+                    <FaFire /> Breaking News
                   </button>
 
-                  <h3>{item.titleTa || item.title}</h3>
+                  <h3>{item.title}</h3>
 
                   <p>
-                    {(item.shortDescriptionTa || item.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").substring(0, 140)}...
+                    {(item.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").substring(0, 140)}...
                   </p>
 
                   <div className="breaking-news-footer">
@@ -200,7 +200,7 @@ const LatestNews = () => {
                       <FaVolumeUp />
 
                       <div className="read-more">
-                        மேலும் வாசிக்க <FaArrowRight />
+                        Read More <FaArrowRight />
                       </div>
                     </div>
 

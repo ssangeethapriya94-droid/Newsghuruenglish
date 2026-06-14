@@ -18,9 +18,9 @@ const NewsGuru = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "நியூஸ் குரு (News Guru)",
-    description: "நியூஸ் குரு - முக்கிய செய்திகளை உடனுக்குடன் தமிழ் மொழியில் அறியுங்கள்",
-    keywords: "நியூஸ் குரு, முக்கிய செய்திகள், நேரலை செய்திகள், தமிழ் செய்திகள்",
+    title: "News Guru (News Guru)",
+    description: "News Guru - Get breaking news instantly in English",
+    keywords: "News Guru, Breaking News, Live Updates, English News",
   });
 
   /* =========================================
@@ -34,14 +34,14 @@ const NewsGuru = () => {
       image: "/images/guru1.jpg",
 
       title:
-        "நியூஸ் குரு: தமிழக அரசியலில் புதிய மாற்றம்",
+        "News Guru: New changes in Tamil Nadu politics",
 
       description:
-        "தமிழக அரசியலில் இன்று முக்கிய அரசியல் மாற்றங்கள் உருவாகியுள்ளதாக தகவல்கள் வெளியாகியுள்ளன.",
+        "Reports suggest major political changes in Tamil Nadu today.",
 
-      category: "அரசியல்",
+      category: "Politics",
 
-      time: "30 நிமிடங்கள் முன்பு",
+      time: "30 minutes ago",
 
       comments: 18,
 
@@ -53,14 +53,14 @@ const NewsGuru = () => {
       image: "/images/guru2.jpg",
 
       title:
-        "சென்னையில் தொழில்நுட்ப மாநாடு தொடக்கம்",
+        "Technology conference begins in Chennai",
 
       description:
-        "இந்தியாவின் மிகப்பெரிய AI மற்றும் தொழில்நுட்ப மாநாடு சென்னையில் தொடங்கியது.",
+        "India's largest AI and technology conference started in Chennai.",
 
-      category: "டெக்னாலஜி",
+      category: "Technology",
 
-      time: "1 மணி நேரம் முன்பு",
+      time: "1 hours ago",
 
       comments: 12,
 
@@ -72,14 +72,14 @@ const NewsGuru = () => {
       image: "/images/guru3.jpg",
 
       title:
-        "உலக சந்தையில் திடீர் சரிவு",
+        "Sudden crash in the global market",
 
       description:
-        "சர்வதேச பங்குச்சந்தையில் இன்று திடீர் வீழ்ச்சி ஏற்பட்டுள்ளது.",
+        "A sudden drop in the international stock market today.",
 
-      category: "வணிகம்",
+      category: "Business",
 
-      time: "45 நிமிடங்கள் முன்பு",
+      time: "45 minutes ago",
 
       comments: 20,
 
@@ -91,14 +91,14 @@ const NewsGuru = () => {
       image: "/images/guru4.jpg",
 
       title:
-        "இந்திய அணியின் புதிய சாதனை",
+        "New record for the Indian team",
 
       description:
-        "இந்திய கிரிக்கெட் அணி உலக சாதனையை படைத்துள்ளது.",
+        "The Indian cricket team has set a world record.",
 
-      category: "விளையாட்டு",
+      category: "Sports",
 
-      time: "2 மணி நேரம் முன்பு",
+      time: "2 hours ago",
 
       comments: 30,
 
@@ -119,10 +119,10 @@ const NewsGuru = () => {
 
         <div>
 
-          <h1>நியூஸ் குரு</h1>
+          <h1>News Guru</h1>
 
           <p>
-            முக்கிய செய்திகளை உடனுக்குடன் அறியுங்கள்
+            Get breaking news instantly
           </p>
 
         </div>

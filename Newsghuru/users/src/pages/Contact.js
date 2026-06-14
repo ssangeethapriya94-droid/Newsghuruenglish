@@ -25,8 +25,8 @@ const Contact = () => {
   return (
     <div className="info-page">
       <div className="info-header">
-        <h1>தொடர்பு கொள்ள</h1>
-        <p>உங்களுக்கு ஏதேனும் கேள்விகள் அல்லது செய்திகள் இருந்தால் எங்களைத் தொடர்பு கொள்ளவும்</p>
+        <h1>Contact Us</h1>
+        <p>If you have any questions or news, please Contact Us</p>
       </div>
 
       <div className="info-card">
@@ -38,7 +38,7 @@ const Contact = () => {
                 <FaEnvelope />
               </div>
               <div className="contact-details">
-                <h3>மின்னஞ்சல் முகவரி</h3>
+                <h3>Email Address</h3>
                 <a href="mailto:info@newsghuru.in">info@newsghuru.in</a>
               </div>
             </div>
@@ -48,8 +48,8 @@ const Contact = () => {
                 <FaMapMarkerAlt />
               </div>
               <div className="contact-details">
-                <h3>முகவரி</h3>
-                <p>சென்னை, தமிழ்நாடு, இந்தியா</p>
+                <h3>Address</h3>
+                <p>Chennai, Tamil Nadu, India</p>
               </div>
             </div>
 
@@ -58,9 +58,9 @@ const Contact = () => {
                 <FaBuilding />
               </div>
               <div className="contact-details">
-                <h3>நிறுவனம்</h3>
+                <h3>Company</h3>
                 <p>
-                  நியூஸ் குரு என்பது குருதேவா என்டர்டெயின்மென்ட்ஸ் பிரைவேட் லிமிடெட் மூலம் நடத்தப்படும் ஒரு டிஜிட்டல் ஊடக பிராண்ட் ஆகும்.
+                  News Ghuru is a digital media brand operated by Gurudeva Entertainments Private Limited.
                 </p>
               </div>
             </div>
@@ -68,48 +68,48 @@ const Contact = () => {
 
           {/* CONTACT FORM */}
           <div className="contact-form-container">
-            <h3>செய்தி அனுப்பவும்</h3>
+            <h3>Send a Message</h3>
             {submitted && (
               <div className="alert-success">
-                உங்கள் செய்தி வெற்றிகரமாக அனுப்பப்பட்டது! நன்றி.
+                Your Message was successfully sent! Thank you.
               </div>
             )}
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
-                <label>பெயர்</label>
+                <label>Name</label>
                 <input
                   type="text"
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="உங்கள் பெயர்"
+                  placeholder="Your Name"
                 />
               </div>
 
               <div className="form-group">
-                <label>மின்னஞ்சல்</label>
+                <label>Email</label>
                 <input
                   type="email"
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="உங்களது மின்னஞ்சல்"
+                  placeholder="Your Email"
                 />
               </div>
 
               <div className="form-group">
-                <label>செய்தி</label>
+                <label>Message</label>
                 <textarea
                   rows="5"
                   required
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="உங்கள் செய்தியை இங்கு தட்டச்சு செய்யவும்..."
+                  placeholder="Type Your Message here..."
                 ></textarea>
               </div>
 
               <button type="submit" className="submit-btn">
-                <FaPaperPlane /> அனுப்பவும்
+                <FaPaperPlane /> Send Message
               </button>
             </form>
           </div>

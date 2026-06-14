@@ -8,45 +8,45 @@ const News = ({ selectedCategory }) => {
   const navigate = useNavigate();
 
   const newsData = {
-    "தற்போதைய செய்தி": [
+    "Latest News": [
       {
         id: 1,
         image: "/images/news1.jpg",
-        title: "BREAKING: முக்கிய அரசியல் நிகழ்வு இன்று நடந்தது",
+        title: "BREAKING: Important Political Event Happened Today",
         description:
-          "தமிழக அரசியலில் இன்று முக்கியமான நிகழ்வு நடைபெற்றுள்ளது...",
-        category: "தமிழகம்",
-        time: "2 மணி நேரம் முன்பு",
+          "An important event took place in Tamil Nadu politics today...",
+        category: "Tamil Nadu",
+        time: "2 hours ago",
         comments: 10,
       },
       {
         id: 2,
         image: "/images/news2.jpg",
-        title: "உலக சந்தையில் புதிய மாற்றங்கள்",
+        title: "New changes in global market",
         description:
-          "உலக பொருளாதாரத்தில் புதிய மாற்றங்கள் உருவாகி வருகின்றன...",
-        category: "உலகம்",
-        time: "1 மணி நேரம் முன்பு",
+          "New changes are emerging in global economy...",
+        category: "World",
+        time: "1 hours ago",
         comments: 8,
       },
     ],
 
-    "தமிழகம்": [
+    "Tamil Nadu": [
       {
         id: 3,
         image: "/images/tamil1.jpg",
-        title: "சென்னையில் மெட்ரோ விரிவாக்கம் தொடக்கம்",
+        title: "Metro expansion begins in Chennai",
         description:
-          "சென்னையில் புதிய மெட்ரோ பாதை விரிவாக்க பணிகள் தொடங்கப்பட்டன...",
-        category: "தமிழகம்",
-        time: "2 மணி நேரம் முன்பு",
+          "New metro line expansion works started in Chennai...",
+        category: "Tamil Nadu",
+        time: "2 hours ago",
         comments: 9,
       },
     ],
   };
 
   const currentNews =
-    newsData[selectedCategory] || newsData["தற்போதைய செய்தி"];
+    newsData[selectedCategory] || newsData["Latest News"];
 
   return (
     <section className="breaking-section">

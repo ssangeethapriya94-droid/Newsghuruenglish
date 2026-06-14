@@ -23,12 +23,12 @@ const BreakingNewsTicker = () => {
   }, []);
 
   const displayNews = breakingNews.length > 0 ? breakingNews : [
-    { _id: 'default', title: 'காத்திருக்கவும்... செய்திகள் ஏற்றப்படுகின்றன...' } // Or "No news" in Tamil
+    { _id: 'default', title: 'Please wait... loading news...' } // Or "No news" in Tamil
   ];
   return (
     <div className="ticker-container">
       <div className="ticker-label">
-        <FaBolt /> முக்கிய செய்திகள்
+        <FaBolt /> Breaking News
       </div>
 
       <div className="ticker-scroll-wrapper">
@@ -41,7 +41,7 @@ const BreakingNewsTicker = () => {
                   if (news._id !== 'default') navigate(`/news/${news._id}`, { state: news });
                 }}
               >
-                {news.titleTa || news.title}
+                {news.title}
               </span>
               {index < displayNews.length - 1 && (
                 <span className="ticker-separator">|</span>
@@ -57,7 +57,7 @@ const BreakingNewsTicker = () => {
                   if (news._id !== 'default') navigate(`/news/${news._id}`, { state: news });
                 }}
               >
-                {news.titleTa || news.title}
+                {news.title}
               </span>
               {index < displayNews.length - 1 && (
                 <span className="ticker-separator">|</span>

@@ -17,52 +17,52 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const topMenu = [
     {
-      name: "முகப்பு", // Fixed: Added missing home label
+      name: "Home", // Fixed: Added missing home label
       icon: <FaHome />,
       path: "/",
     },
     {
-      name: "தற்போதைய செய்தி",
+      name: "Latest News",
       icon: <FaNewspaper />,
       path: "/latest-news",
     },
     {
-      name: "தமிழகம்",
+      name: "Tamil Nadu",
       icon: <FaMapMarkedAlt />,
       path: "/tamilnadu",
     },
     {
-      name: "இந்தியா",
+      name: "India",
       icon: <FaFlag />,
       path: "/india",
     },
     {
-      name: "உலகம்",
+      name: "World",
       icon: <FaGlobe />,
       path: "/world",
     },
     {
-      name: "வணிகம்",
+      name: "Business",
       icon: <FaBriefcase />,
       path: "/business",
     },
     {
-      name: "விளையாட்டு",
+      name: "Sports",
       icon: <FaFutbol />,
       path: "/sports",
     },
     {
-      name: "கல்வி",
+      name: "Education",
       icon: <FaGraduationCap />,
       path: "/education",
     },
     {
-      name: "அரசியல்",
+      name: "Politics",
       icon: <FaLandmark />,
       path: "/politics",
     },
     {
-      name: "சினிமா",
+      name: "Cinema",
       icon: <FaFilm />,
       path: "/cinema",
     }

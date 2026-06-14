@@ -30,18 +30,18 @@ const Footer = () => {
         <div className="footer-brand-col">
           <div className="footer-logo-container">
             <img
-              src="/NEWS GHURU LOGO PNG.png"
+              src="/NEWS GHURU LOGO English.png"
               alt="News Ghuru Logo"
               className="footer-logo"
             />
             <div className="footer-title-wrap">
-              <h2>நியூஸ் குரு</h2>
-              <span className="footer-tagline">உங்கள் செய்தி உங்கள் குரல்</span>
+              <h2>News Guru</h2>
+              <span className="footer-tagline">Your News Your Voice</span>
             </div>
           </div>
           <p className="footer-desc">
-            நேர்மையான செய்திகள், நம்பகமான தகவல்கள்.
-            உங்கள் நாட்டின் ஒவ்வொரு கதையும் எங்களிடம்.
+            Honest news, reliable information.
+            Every story of our nation is with us.
           </p>
 
           <div className="footer-socials">
@@ -54,45 +54,45 @@ const Footer = () => {
 
         {/* COLUMN 2: QUICK LINKS */}
         <div className="footer-links-col">
-          <h3>விரைவான இணைப்புகள்</h3>
+          <h3>Quick Links</h3>
           <ul>
-            <li><Link to="/"><FaChevronRight className="chevron-link-icon" /> முகப்பு</Link></li>
-            <li><Link to="/latest-news"><FaChevronRight className="chevron-link-icon" /> தற்போதைய செய்தி</Link></li>
-            <li><Link to="/tamilnadu"><FaChevronRight className="chevron-link-icon" /> தமிழகம்</Link></li>
-            <li><Link to="/india"><FaChevronRight className="chevron-link-icon" /> இந்தியா</Link></li>
-            <li><Link to="/world"><FaChevronRight className="chevron-link-icon" /> உலகம்</Link></li>
+            <li><Link to="/"><FaChevronRight className="chevron-link-icon" /> Home</Link></li>
+            <li><Link to="/latest-news"><FaChevronRight className="chevron-link-icon" /> Latest News</Link></li>
+            <li><Link to="/tamilnadu"><FaChevronRight className="chevron-link-icon" /> Tamil Nadu</Link></li>
+            <li><Link to="/india"><FaChevronRight className="chevron-link-icon" /> India</Link></li>
+            <li><Link to="/world"><FaChevronRight className="chevron-link-icon" /> World</Link></li>
           </ul>
         </div>
 
         {/* COLUMN 3: POPULAR CATEGORIES */}
         <div className="footer-links-col">
-          <h3>பிரபலமான பிரிவுகள்</h3>
+          <h3>Popular Categories</h3>
           <ul className="category-links">
-            <li><Link to="/sports"><FaFutbol className="cat-icon" /> விளையாட்டு</Link></li>
-            <li><Link to="/business"><FaBriefcase className="cat-icon" /> வணிகம்</Link></li>
-            <li><Link to="/education"><FaGraduationCap className="cat-icon" /> கல்வி</Link></li>
-            <li><Link to="/politics"><FaLandmark className="cat-icon" /> அரசியல்</Link></li>
-            <li><Link to="/cinema"><FaFilm className="cat-icon" /> சினிமா</Link></li>
+            <li><Link to="/sports"><FaFutbol className="cat-icon" /> Sports</Link></li>
+            <li><Link to="/business"><FaBriefcase className="cat-icon" /> Business</Link></li>
+            <li><Link to="/education"><FaGraduationCap className="cat-icon" /> Education</Link></li>
+            <li><Link to="/politics"><FaLandmark className="cat-icon" /> Politics</Link></li>
+            <li><Link to="/cinema"><FaFilm className="cat-icon" /> Cinema</Link></li>
           </ul>
         </div>
 
         {/* COLUMN 4: CONTACT SECTION */}
         <div className="footer-contact">
-          <h3>தொடர்பு கொள்ள</h3>
+          <h3>Contact Us</h3>
           <p>
-            மின்னஞ்சல்:{" "}
+            Email:{" "}
             <a href="mailto:info@newsghuru.in" className="footer-email">
               info@newsghuru.in
             </a>
           </p>
           <p>
-            சென்னை, தமிழ்நாடு, இந்தியா
+            Chennai, Tamil Nadu, India
           </p>
           <p className="footer-company">
-            நியூஸ் குரு என்பது குருதேவா என்டர்டெயின்மென்ட்ஸ் பிரைவேட் லிமிடெட் மூலம் நடத்தப்படும் ஒரு டிஜிட்டல் ஊடக பிராண்ட் ஆகும்.
+            News Ghuru is a digital media brand operated by Gurudeva Entertainments Private Limited.
           </p>
           <Link to="/contact" className="footer-btn">
-            இப்போது குழுசேரவும்
+            Subscribe Now
           </Link>
         </div>
       </div>
@@ -100,11 +100,11 @@ const Footer = () => {
       {/* COPYRIGHT BOTTOM BAR */}
       <div className="footer-bottom">
         <div className="footer-bottom-container">
-          <p>© 2026 நியூஸ் குரு. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+          <p>© 2026 News Guru. All rights reserved.</p>
           <div className="footer-bottom-links">
-            <Link to="/privacy">தனியுரிமைக் கொள்கை</Link>
-            <Link to="/terms">விதிமுறைகள் மற்றும் நிபந்தனைகள்</Link>
-            <Link to="/contact">தொடர்பு</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms and Conditions</Link>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
       </div>

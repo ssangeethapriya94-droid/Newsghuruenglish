@@ -24,9 +24,9 @@ const NewsDetails = () => {
   const [news, setNews] = useState(location.state || null);
 
   useSEO({
-    title: news ? (news.titleTa || news.title) : "செய்தி விவரங்கள்",
-    description: news ? (news.shortDescriptionTa || news.description)?.substring(0, 160) : "செய்தி விவரங்கள் மற்றும் முழுமையான தகவல்கள்",
-    keywords: news && (news.seoKeywords || news.keywords) ? (news.seoKeywords || news.keywords) : (news ? `${(news.titleTa || news.title)?.split(" ").slice(0, 5).join(", ")}, தமிழ் செய்தி` : "தமிழ் செய்தி, செய்திகள், நியூஸ் குரு"),
+    title: news ? (news.title) : "News Details",
+    description: news ? (news.shortDescription || news.description)?.substring(0, 160) : "News Details and comprehensive information",
+    keywords: news && (news.seoKeywords || news.keywords) ? (news.seoKeywords || news.keywords) : (news ? `${(news.title)?.split(" ").slice(0, 5).join(", ")}, English News` : "English News, News, News Guru"),
   });
 
   const [loading, setLoading] = useState(!location.state);
@@ -35,17 +35,17 @@ const NewsDetails = () => {
   const currentUrl = window.location.href;
 
   const categoryTamilMap = {
-    breaking: "முக்கிய செய்திகள்",
-    tamil: "தமிழகம்",
-    india: "இந்தியா",
-    world: "உலகம்",
-    business: "வணிகம்",
-    sports: "விளையாட்டு",
-    education: "கல்வி",
-    politics: "அரசியல்",
-    cinema: "சினிமா",
-    technology: "தொழில்நுட்பம்",
-    tech: "தொழில்நுட்பம்",
+    breaking: "Breaking News",
+    tamil: "Tamil Nadu",
+    india: "India",
+    world: "World",
+    business: "Business",
+    sports: "Sports",
+    education: "Education",
+    politics: "Politics",
+    cinema: "Cinema",
+    technology: "Technology",
+    tech: "Technology",
   };
 
   const getCategoryLabel = (category) =>
@@ -64,7 +64,7 @@ const NewsDetails = () => {
         setNews(res.data || null);
       } catch (err) {
         console.error("News Details Error:", err);
-        setError("செய்தி விவரங்களை ஏற்றுவதில் தோல்வி");
+        setError("Failed to load news details");
       } finally {
         setLoading(false);
       }
@@ -76,7 +76,7 @@ const NewsDetails = () => {
   if (loading) {
     return (
       <div className="news-not-found">
-        <h2>செய்திகளை ஏற்றுகிறது...</h2>
+        <h2>Loading news...</h2>
       </div>
     );
   }
@@ -92,7 +92,7 @@ const NewsDetails = () => {
   if (!news) {
     return (
       <div className="news-not-found">
-        <h2>செய்தி கிடைக்கவில்லை</h2>
+        <h2>News not found</h2>
       </div>
     );
   }
@@ -106,14 +106,14 @@ const NewsDetails = () => {
         onClick={() => navigate(-1)}
       >
         <FaArrowLeft />
-        பின்செல்ல
+        Go Back
       </button>
 
       {/* FEATURE IMAGE */}
       <div className="details-image-wrapper">
         <img
           src={news.image}
-          alt={news.titleTa || news.title}
+          alt={news.title}
           className="details-image"
           onError={(e) => {
             e.target.src =
@@ -132,7 +132,7 @@ const NewsDetails = () => {
 
         {/* TITLE */}
         <h1 className="details-title">
-          {news.titleTa || news.title}
+          {news.title}
         </h1>
 
         {/* META */}
@@ -148,7 +148,7 @@ const NewsDetails = () => {
 
           <span>
             <FaUserAlt />
-            நிர்வாக செய்தியாளர்
+            Admin Reporter
           </span>
 
         </div>
@@ -158,7 +158,7 @@ const NewsDetails = () => {
           <div
             className="rich-text-content"
             dangerouslySetInnerHTML={{
-              __html: news.fullDescriptionTa || news.fullDescription || news.description || "விவரங்கள் எதுவும் கிடைக்கவில்லை",
+              __html: news.fullDescription || news.shortDescription || news.description || "No details available",
             }}
           />
         </div>
@@ -167,7 +167,7 @@ const NewsDetails = () => {
         <div className="share-section">
 
           <h3 className="share-title">
-            இந்த செய்தியை பகிரவும்
+            Share this news
           </h3>
 
           <div className="share-buttons">

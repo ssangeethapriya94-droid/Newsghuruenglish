@@ -15,9 +15,9 @@ const World = () => {
   const navigate = useNavigate();
 
   useSEO({
-    title: "உலகம்",
-    description: "உலக நாடுகள், சர்வதேச செய்திகள், அமெரிக்கா, ஐரோப்பிய செய்திகள் மற்றும் உலக நிகழ்வுகள்",
-    keywords: "உலகச் செய்திகள், சர்வதேச செய்திகள், உலக நிகழ்வுகள், வெளிநாட்டுச் செய்திகள்",
+    title: "World",
+    description: "World countries, international news, America, European news and world events",
+    keywords: "World news, international news, world events, foreign news",
   });
 
   const [worldNews, setWorldNews] = useState([]);
@@ -25,7 +25,7 @@ const World = () => {
   const [error, setError] = useState("");
 
   const categoryTamilMap = {
-    world: "உலகம்",
+    world: "World",
   };
 
   const getCategoryLabel = (category) =>
@@ -45,7 +45,7 @@ const World = () => {
 
     } catch (err) {
       console.error("World API Error:", err);
-      setError("உலகச் செய்திகளை ஏற்றுவதில் தோல்வி");
+      setError("Failed to load world news");
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ const World = () => {
 
   // LOADING
   if (loading) {
-    return <div style={{ padding: "30px", textAlign: "center" }}>செய்திகளை ஏற்றுகிறது...</div>;
+    return <div style={{ padding: "30px", textAlign: "center" }}>Loading news...</div>;
   }
 
   // ERROR
@@ -102,12 +102,12 @@ const World = () => {
       <div className="world-header">
 
         <div>
-          <h1>உலகம்</h1>
-          <p>உலக நாடுகளின் முக்கிய செய்திகளை உடனுக்குடன் அறியுங்கள்</p>
+          <h1>World</h1>
+          <p>Get the latest breaking news from countries around the world</p>
         </div>
 
         <button className="world-live-btn">
-          <FaGlobe /> உலகம் நேரலை
+          <FaGlobe /> World Live
         </button>
 
       </div>
@@ -115,7 +115,7 @@ const World = () => {
       {/* EMPTY STATE */}
       {filteredWorldNews.length === 0 ? (
         <div style={{ padding: "30px" }}>
-          தேர்ந்தெடுக்கப்பட்ட தேதியில் உலகச் செய்திகள் எதுவும் இல்லை
+          No world news available for the selected date...
         </div>
       ) : (
         <>
@@ -131,7 +131,7 @@ const World = () => {
 
             <img
               src={filteredWorldNews[0].image}
-              alt={filteredWorldNews[0].titleTa || filteredWorldNews[0].title}
+              alt={filteredWorldNews[0].title}
               className="featured-world-image"
             />
 
@@ -141,7 +141,7 @@ const World = () => {
                 <FaGlobe /> {getCategoryLabel(filteredWorldNews[0].category)}
               </button>
 
-              <h2>{filteredWorldNews[0].titleTa || filteredWorldNews[0].title}</h2>
+              <h2>{filteredWorldNews[0].title}</h2>
 
               <div className="featured-world-meta">
                 <span>
@@ -173,7 +173,7 @@ const World = () => {
 
                 <img
                   src={news.image}
-                  alt={news.titleTa || news.title}
+                  alt={news.title}
                   className="world-news-image"
                 />
 
@@ -183,10 +183,10 @@ const World = () => {
                     <FaGlobe /> {getCategoryLabel(news.category)}
                   </button>
 
-                  <h3>{news.titleTa || news.title}</h3>
+                  <h3>{news.title}</h3>
 
                   <p>
-                    {(news.shortDescriptionTa || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 100)}...
+                    {(news.shortDescription || news.description)?.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").slice(0, 100)}...
                   </p>
 
                   <div className="world-news-footer">
@@ -201,7 +201,7 @@ const World = () => {
                     </div>
 
                     <div className="world-read-more">
-                      மேலும் வாசிக்க <FaArrowRight />
+                      Read More <FaArrowRight />
                     </div>
 
                   </div>
